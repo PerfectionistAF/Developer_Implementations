@@ -1,0 +1,35 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="RecipeIndexDbModelStoreContainer" CdmEntityContainer="RecipeIndexDbEntities">
+    <EntitySetMapping Name="IngredientsTables">
+      <EntityTypeMapping TypeName="RecipeIndexDbModel.IngredientsTable">
+        <MappingFragment StoreEntitySet="IngredientsTable">
+          <ScalarProperty Name="Ingredient" ColumnName="Ingredient" />
+          <ScalarProperty Name="Recipe_Array" ColumnName="Recipe Array" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="UserTables">
+      <EntityTypeMapping TypeName="RecipeIndexDbModel.UserTable">
+        <MappingFragment StoreEntitySet="UserTable">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Email" ColumnName="Email" />
+          <ScalarProperty Name="Phone" ColumnName="Phone" />
+          <ScalarProperty Name="Age" ColumnName="Age" />
+          <ScalarProperty Name="Password" ColumnName="Password" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="RecipeTables">
+      <EntityTypeMapping TypeName="RecipeIndexDbModel.RecipeTable">
+        <MappingFragment StoreEntitySet="RecipeTable">
+          <ScalarProperty Name="Recipe_Category" ColumnName="Recipe Category" />
+          <ScalarProperty Name="Recipe_Area" ColumnName="Recipe Area" />
+          <ScalarProperty Name="Recipe_Ingredients" ColumnName="Recipe Ingredients" />
+          <ScalarProperty Name="Recipe_Tag" ColumnName="Recipe Tag" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

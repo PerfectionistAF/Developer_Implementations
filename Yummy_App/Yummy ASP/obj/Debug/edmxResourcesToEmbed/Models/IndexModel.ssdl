@@ -1,0 +1,47 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="RecipeIndexDbModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2008" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="IngredientsTable">
+    <Key>
+      <PropertyRef Name="Ingredient" />
+    </Key>
+    <Property Name="Ingredient" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="Recipe Array" Type="nvarchar(max)" Nullable="false" />
+  </EntityType>
+  <!--Errors Found During Generation:
+warning 6002: The table/view 'RecipeIndexDb.dbo.RecipeTable' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+  <EntityType Name="RecipeTable">
+    <Key>
+      <PropertyRef Name="Recipe Category" />
+      <PropertyRef Name="Recipe Area" />
+      <PropertyRef Name="Recipe Ingredients" />
+      <PropertyRef Name="Recipe Tag" />
+    </Key>
+    <Property Name="Recipe Category" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="Recipe Area" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="Recipe Ingredients" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="Recipe Tag" Type="nvarchar" MaxLength="50" Nullable="false" />
+  </EntityType>
+  <EntityType Name="UserTable">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" Nullable="false" />
+    <Property Name="Name" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="Email" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="Phone" Type="numeric" Precision="11" Scale="0" Nullable="false" />
+    <Property Name="Age" Type="int" />
+    <Property Name="Password" Type="nvarchar(max)" Nullable="false" />
+  </EntityType>
+  <EntityContainer Name="RecipeIndexDbModelStoreContainer">
+    <EntitySet Name="IngredientsTable" EntityType="Self.IngredientsTable" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="UserTable" EntityType="Self.UserTable" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="RecipeTable" EntityType="Self.RecipeTable" store:Type="Tables" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+[RecipeTable].[Recipe Category] AS [Recipe Category], 
+[RecipeTable].[Recipe Area] AS [Recipe Area], 
+[RecipeTable].[Recipe Ingredients] AS [Recipe Ingredients], 
+[RecipeTable].[Recipe Tag] AS [Recipe Tag]
+FROM [dbo].[RecipeTable] AS [RecipeTable]</DefiningQuery>
+    </EntitySet>
+  </EntityContainer>
+</Schema>

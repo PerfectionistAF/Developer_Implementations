@@ -1,0 +1,151 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="RecipeIndexDbModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2008" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="IngredientsTable">
+          <Key>
+            <PropertyRef Name="Ingredient" />
+          </Key>
+          <Property Name="Ingredient" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Recipe Array" Type="nvarchar(max)" Nullable="false" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'RecipeIndexDb.dbo.RecipeTable' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="RecipeTable">
+          <Key>
+            <PropertyRef Name="Recipe Category" />
+            <PropertyRef Name="Recipe Area" />
+            <PropertyRef Name="Recipe Ingredients" />
+            <PropertyRef Name="Recipe Tag" />
+          </Key>
+          <Property Name="Recipe Category" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Recipe Area" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Recipe Ingredients" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Recipe Tag" Type="nvarchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <EntityType Name="UserTable">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" Nullable="false" />
+          <Property Name="Name" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Email" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Phone" Type="numeric" Precision="11" Scale="0" Nullable="false" />
+          <Property Name="Age" Type="int" />
+          <Property Name="Password" Type="nvarchar(max)" Nullable="false" />
+        </EntityType>
+        <EntityContainer Name="RecipeIndexDbModelStoreContainer">
+          <EntitySet Name="IngredientsTable" EntityType="Self.IngredientsTable" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="UserTable" EntityType="Self.UserTable" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="RecipeTable" EntityType="Self.RecipeTable" store:Type="Tables" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+[RecipeTable].[Recipe Category] AS [Recipe Category], 
+[RecipeTable].[Recipe Area] AS [Recipe Area], 
+[RecipeTable].[Recipe Ingredients] AS [Recipe Ingredients], 
+[RecipeTable].[Recipe Tag] AS [Recipe Tag]
+FROM [dbo].[RecipeTable] AS [RecipeTable]</DefiningQuery>
+          </EntitySet>
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="RecipeIndexDbModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="IngredientsTable">
+          <Key>
+            <PropertyRef Name="Ingredient" />
+          </Key>
+          <Property Name="Ingredient" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Recipe_Array" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+        </EntityType>
+        <EntityType Name="UserTable">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" />
+          <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Email" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Phone" Type="Decimal" Precision="11" Scale="0" Nullable="false" />
+          <Property Name="Age" Type="Int32" />
+          <Property Name="Password" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+        </EntityType>
+        <EntityType Name="RecipeTable">
+          <Key>
+            <PropertyRef Name="Recipe_Category" />
+            <PropertyRef Name="Recipe_Area" />
+            <PropertyRef Name="Recipe_Ingredients" />
+            <PropertyRef Name="Recipe_Tag" />
+          </Key>
+          <Property Name="Recipe_Category" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Recipe_Area" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Recipe_Ingredients" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Recipe_Tag" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+        </EntityType>
+        <EntityContainer Name="RecipeIndexDbEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="IngredientsTables" EntityType="Self.IngredientsTable" />
+          <EntitySet Name="UserTables" EntityType="Self.UserTable" />
+          <EntitySet Name="RecipeTables" EntityType="Self.RecipeTable" />
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="RecipeIndexDbModelStoreContainer" CdmEntityContainer="RecipeIndexDbEntities">
+          <EntitySetMapping Name="IngredientsTables">
+            <EntityTypeMapping TypeName="RecipeIndexDbModel.IngredientsTable">
+              <MappingFragment StoreEntitySet="IngredientsTable">
+                <ScalarProperty Name="Ingredient" ColumnName="Ingredient" />
+                <ScalarProperty Name="Recipe_Array" ColumnName="Recipe Array" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="UserTables">
+            <EntityTypeMapping TypeName="RecipeIndexDbModel.UserTable">
+              <MappingFragment StoreEntitySet="UserTable">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
+                <ScalarProperty Name="Phone" ColumnName="Phone" />
+                <ScalarProperty Name="Age" ColumnName="Age" />
+                <ScalarProperty Name="Password" ColumnName="Password" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="RecipeTables">
+            <EntityTypeMapping TypeName="RecipeIndexDbModel.RecipeTable">
+              <MappingFragment StoreEntitySet="RecipeTable">
+                <ScalarProperty Name="Recipe_Category" ColumnName="Recipe Category" />
+                <ScalarProperty Name="Recipe_Area" ColumnName="Recipe Area" />
+                <ScalarProperty Name="Recipe_Ingredients" ColumnName="Recipe Ingredients" />
+                <ScalarProperty Name="Recipe_Tag" ColumnName="Recipe Tag" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="true" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>
