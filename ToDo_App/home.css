@@ -1,0 +1,114 @@
+/*style for background*/
+html {
+    background-color: #ffffff;
+    opacity: 1;
+    background-size: 8px 8px;
+    background-image:  repeating-linear-gradient(0deg, #bababa, #bababa 0.4px, #ffffff 0.4px, #ffffff);
+  }
+  
+  .title {
+    font-size: 180%;
+    font-family: 'Montserrat', sans-serif;
+    color: #1c2741;
+    background-color: #c2f6ff;
+    padding: 1rem;
+    text-align: center;
+    border: 0.1rem solid white;
+    border-radius: 5px;
+    width: textarea;
+  }
+  
+  /* Style for the columns container */
+  .columns-container {
+    display: flex;
+    justify-content: space-between; /* Evenly distributes columns */
+    padding: 20px;
+    gap: 10px;
+    margin: 10px 0;
+  }
+  
+  .create-task-container {
+    border: 1px solid #ccc;
+    padding: 10px;
+    margin: 10px 0;
+    width: 300px;
+    position: relative;
+  }
+  
+  /* Style for Task List column */
+  .task-list {
+    .task-box {
+    border: 1px solid #ccc;
+    padding: 10px;
+    margin: 10px 0;
+    width: 300px;
+    position: relative;
+    }}
+    
+  /* Style for the task box */
+  .task-box {
+    border: 1px solid #ccc;
+    padding: 10px;
+    margin: 10px 0;
+    width: 300px;
+    position: relative;
+  }
+  
+  /*Styles for task box*/
+  .task-box .task-header {
+    display: flex;
+    align-items: center;
+  }
+  
+  .task-box .task-header input[type="checkbox"] {
+    margin-right: 10px;
+  }
+  
+  .task-box .task-title {
+    font-weight: bold;
+  }
+  
+  .task-box .due-date {
+    color: #555;
+    margin-top: 5px;
+  }
+  
+  .task-box .details {
+    display: none;
+    margin-top: 10px;
+    background: #f8f8f8;
+    padding: 10px;
+    border-top: 1px solid #ccc;
+  }
+  
+  .task-box .toggle-details {
+    position: absolute;
+    bottom: 10px;
+    right: 10px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    padding: 5px;
+    cursor: pointer;
+  }
+  
+  .task-list {
+    background-color: #c8eeff;
+  }
+  
+  .urgent {
+    background-color: #cfe9ff;
+  }
+  
+  .in-progress {
+    background-color: #d8e4ff;
+  }
+  
+  .complete {
+    background-color: #e2dfff;
+  }
+  
+  .backlog {
+    background-color: #ecdaff;
+  }
+  

@@ -1,0 +1,43 @@
+<body>
+    <section class="bg">
+      <div class="title">
+        Task Scheduler
+      </div>
+      
+      <!--  Created tasks will show below the 'create task' box in the same column. in this column they will be ordered by date (due soonest). From here they will be available for dragging and dropping to their preferred schedule columns on the right. -->
+      <div class="columns-container">
+          <div class="column task-list">
+            Task List 
+              <div class="create-task-container" id=""> Create Task
+                 <form method="post" action=''>
+                      <label for="task-name">
+                          Task name: <input id="task-name" type="text" required />
+                      </label><br>
+                      <label for="task-desc">
+                          Task description: <input id="task-desc" type="text" required />
+                      </label><br>
+                      <label for="due-date">
+                          Ideally due by: <input id="due-date" type="date" required />
+                      </label>
+                  </form>
+                  <div class="button">
+                    <button class="btn create-task" id="create-task">Create Task</button>
+                  </div>
+              </div>
+          </div>
+          <div class="column urgent">
+            Urgent
+          </div>
+          <div class="column in-progress">
+            In Progress
+          </div>
+          <div class="column complete">
+            Complete
+          </div>
+          <div class="column backlog">
+            Backlog
+          </div>
+       </div>  
+      </div>
+    </section>
+  </body>
