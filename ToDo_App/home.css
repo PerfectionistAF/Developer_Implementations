@@ -96,6 +96,15 @@ html {
     position: absolute;
     top: 5px;
     right: 5px;
+    width: 50px;
+    cursor: pointer;
+  }
+
+  .task-box .edit-task {
+    position: absolute;
+    top: 30px;
+    right: 5px;
+    width: 50px;
     cursor: pointer;
   }
   
