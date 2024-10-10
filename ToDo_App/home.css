@@ -91,6 +91,13 @@ html {
     padding: 5px;
     cursor: pointer;
   }
+
+  .task-box .delete-task {
+    position: absolute;
+    top: 5px;
+    right: 5px;
+    cursor: pointer;
+  }
   
   .task-list {
     background-color: #c8eeff;

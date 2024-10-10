@@ -1,7 +1,8 @@
 document.getElementById('create-task').addEventListener('click', function (e) {
     e.preventDefault(); 
 // Creates a new task on click event and performs function that will prevent form submission when in its default state (not filled in)
-//For future development of project, could replace getElementByID for querySelectorAll '.create-task'. This would mean other code could be written to restore a recently deleted task, using the same 'create task' code by referencing the create task function.
+//For future development of project, could replace getElementByID for querySelectorAll '.create-task'. 
+//This would mean other code could be written to restore a recently deleted task, using the same 'create task' code by referencing the create task function.
 
 // Get task details from the input fields
 const taskName = document.getElementById('task-name').value;
@@ -11,6 +12,11 @@ const dueDate = document.getElementById('due-date').value;
 // Create a new task box
 const taskBox = document.createElement('div');
 taskBox.classList.add('task-box');
+
+//Create the delete button per task
+const deleteButton = document.createElement('button');
+deleteButton.classList.add('delete-button');
+deleteButton.innerText = 'Delete';
 
 // Task header with checkbox and title
 const taskHeader = document.createElement('div');
@@ -25,6 +31,7 @@ taskTitle.innerText = taskName;
 
 taskHeader.appendChild(checkbox);
 taskHeader.appendChild(taskTitle);
+taskBox.appendChild(deleteButton);
 
 // Due date
 const dueDateElement = document.createElement('div');
@@ -64,6 +71,14 @@ taskBox.appendChild(taskHeader);
 taskBox.appendChild(dueDateElement);
 taskBox.appendChild(details);
 taskBox.appendChild(toggleStrip);
+// Check innerHTML of task, can later use input verification to check characters and length
+taskBox.innerHTML = `
+            <h3>${taskName}</h3>
+            <p>${taskDesc}</p>
+            <p>Due: ${dueDate}</p>
+            <button class="delete-task" onclick="deleteTask(this)">Delete</button>
+        `;
+
 
 // Add the task box to the task list
 document.querySelector('.task-list').appendChild(taskBox);
@@ -95,3 +110,10 @@ function renderTodos() {
 const todoList = document.getElementById("todo-input");
 } 
 //Change to be compatible with tasks in the code and finish to function properly
+
+//delete task function
+function deleteTask(button) {
+        //get the parent element of the delete button such that it can be deleted
+        const task = button.parentElement;
+        task.remove();
+}
