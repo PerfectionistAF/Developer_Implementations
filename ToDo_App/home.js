@@ -12,6 +12,8 @@ const dueDate = document.getElementById('due-date').value;
 // Create a new task box
 const taskBox = document.createElement('div');
 taskBox.classList.add('task-box');
+taskBox.setAttribute('draggable', 'true');
+taskBox.ondragstart = dragstart_handler(ev);
 
 // Create the delete button per task
 const deleteButton = document.createElement('button');
@@ -155,3 +157,20 @@ function editTask(button) {
     //remove the task such that it can be edited then recreated
     task.remove();
 }
+
+//drag and drop functions
+function dragstart_handler(ev) {
+    console.log("dragStart");
+    var dti = ev.dataTransfer.items;
+    if (dti === undefined || dti == null) {
+      console.log("Browser does not support DataTransferItem interface");
+      return;
+    }
+    // Change the source element's background color to signify drag has started
+    ev.currentTarget.style.border = "dashed";
+    // Add the id of the drag source element to the drag data payload so
+    // it is available when the drop event is fired
+    dti.add(ev.target.id, "text/plain");
+    // Tell the browser both copy and move are possible
+    ev.effectAllowed = "copyMove";
+  }
