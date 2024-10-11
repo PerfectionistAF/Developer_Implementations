@@ -13,12 +13,15 @@ const dueDate = document.getElementById('due-date').value;
 const taskBox = document.createElement('div');
 taskBox.classList.add('task-box');
 
-//Create the delete button per task
-//const deleteButton = document.createElement('button');
-//deleteButton.classList.add('delete-button');
-//deleteButton.innerText = 'Delete';
-//deleteButton.innerHTML = 
-//`<button class="delete-task" onclick="deleteTask(this)">Delete</button>`
+// Create the delete button per task
+const deleteButton = document.createElement('button');
+deleteButton.classList.add('delete-task');
+deleteButton.innerText = 'Delete';
+
+// Create the edit button per task
+const editButton = document.createElement('button');
+editButton.classList.add('edit-task');
+editButton.innerText = 'Edit';
 
 // Task header with checkbox and title
 const taskHeader = document.createElement('div');
@@ -33,7 +36,6 @@ taskTitle.innerText = taskName;
 
 taskHeader.appendChild(checkbox);
 taskHeader.appendChild(taskTitle);
-//taskBox.appendChild(deleteButton);
 
 // Due date
 const dueDateElement = document.createElement('div');
@@ -47,8 +49,8 @@ details.innerText = taskDesc;
 
 ///////////////
 
-// Cannot call function to toggle unless create action works
-//function toggleTaskDetails() {
+// Cannot call functions unless create action works
+
 // Toggle strip for task details with arrow SVG
 const toggleStrip = document.createElement('div');
 toggleStrip.classList.add('toggle-strip');
@@ -67,23 +69,34 @@ if (details.style.display === 'none' || details.style.display === '') {
     toggleStrip.querySelector('.arrow').style.transform = 'rotate(0deg)';
 }
 });
+
+// Delete button
+deleteButton.addEventListener('click', function () {
+    deleteTask(deleteButton);
+});
+// Edit button
+editButton.addEventListener('click', function () {
+    editTask(editButton);
+});
+
 ///////////////
 
 // Assemble the task box
 taskBox.appendChild(taskHeader);
 taskBox.appendChild(dueDateElement);
 taskBox.appendChild(details);
-//taskBox.appendChild(deleteButton);
+taskBox.appendChild(toggleStrip); 
+taskBox.appendChild(deleteButton);
+taskBox.appendChild(editButton);
 
 // Check innerHTML of task, can later use input verification to check characters and length
-taskBox.innerHTML = `
+/*taskBox.innerHTML = `
             <h3>${taskName}</h3>
             <p>${taskDesc}</p>
             <p>Due: ${dueDate}</p>
             <button class="delete-task" onclick="deleteTask(this)">Delete</button>
             <button class="edit-task" onclick="editTask(this)">Edit</button>
-        `;
-taskBox.appendChild(toggleStrip);        
+        `;*/       
 
 // Add the task box to the task list
 document.querySelector('.task-list').appendChild(taskBox);
@@ -92,7 +105,11 @@ document.querySelector('.task-list').appendChild(taskBox);
 document.getElementById('task-name').value = '';
 document.getElementById('task-desc').value = '';
 document.getElementById('due-date').value = '';
-});
+
+});  // End of create task listener
+
+
+
 
 ///////////////
 
@@ -128,9 +145,9 @@ function editTask(button) {
     //get parent element, which is taskBox
     const task = button.parentElement;
     //set the elements within the task box, all h3, all p tags
-    const taskName = task.querySelector('h3').innerText;
-    const taskDesc = task.querySelector('p').innerText;
-    const dueDate = task.querySelector('p').innerText;
+    const taskName = task.querySelector('div').innerText;
+    const taskDesc = task.querySelector('div').innerText;
+    const dueDate = task.querySelector('div').innerText;
     //get each tag value and set it to the first element that matches
     document.getElementById('task-name').value = taskName;
     document.getElementById('task-desc').value = taskDesc;
