@@ -7,13 +7,13 @@ document.getElementById('create-task').addEventListener('click', function (e) {
 // Get task details from the input fields
 const taskName = document.getElementById('task-name').value;
 const taskDesc = document.getElementById('task-desc').value;
-const dueDate = document.getElementById('due-date').value;
+const d = new Date(document.getElementById('due-date').value);
+const dueDate = d.toDateString();
 
 // Create a new task box
 const taskBox = document.createElement('div');
 taskBox.classList.add('task-box');
 taskBox.setAttribute('draggable', 'true');
-taskBox.ondragstart = dragstart_handler(ev);
 
 // Create the delete button per task
 const deleteButton = document.createElement('button');
@@ -41,6 +41,7 @@ taskHeader.appendChild(taskTitle);
 
 // Due date
 const dueDateElement = document.createElement('div');
+dueDateElement.type = 'date';
 dueDateElement.classList.add('due-date');
 dueDateElement.innerText = 'Due by: ' + dueDate;
 
@@ -126,12 +127,12 @@ todos = []
 }
 
 function saveTodos() {
-localStorage.setItem("todos", JSON.stringify(todos));
+    localStorage.setItem("todos", JSON.stringify(todos));
 }
 
 //Render items
 function renderTodos() {
-const todoList = document.getElementById("todo-input");
+    const todoList = document.getElementById("todo-input");
 } 
 //Change to be compatible with tasks in the code and finish to function properly
 
@@ -148,29 +149,24 @@ function editTask(button) {
     const task = button.parentElement;
     //set the elements within the task box, all h3, all p tags
     const taskName = task.querySelector('div').innerText;
-    const taskDesc = task.querySelector('div').innerText;
-    const dueDate = task.querySelector('div').innerText;
+    const dueDate = task.querySelectorAll('div')[2].innerText;
+    const taskDesc = task.querySelectorAll('div')[3].innerText;
+    var newDate = new Date(dueDate);
+    const month = String(newDate.getMonth() + 1).padStart(2, '0'); // Months are zero-based
+    const day = String(newDate.getDate()).padStart(2, '0');
+    const year = newDate.getFullYear();
+    const formattedDate = `${year}-${month}-${day}`;
+    //newDate = Date.parse(newDate);
+    //prompt(formattedDate);
     //get each tag value and set it to the first element that matches
     document.getElementById('task-name').value = taskName;
     document.getElementById('task-desc').value = taskDesc;
-    document.getElementById('due-date').value = dueDate;
+    document.getElementById('due-date').value = formattedDate;
     //remove the task such that it can be edited then recreated
     task.remove();
 }
 
-//drag and drop functions
-function dragstart_handler(ev) {
-    console.log("dragStart");
-    var dti = ev.dataTransfer.items;
-    if (dti === undefined || dti == null) {
-      console.log("Browser does not support DataTransferItem interface");
-      return;
-    }
-    // Change the source element's background color to signify drag has started
-    ev.currentTarget.style.border = "dashed";
-    // Add the id of the drag source element to the drag data payload so
-    // it is available when the drop event is fired
-    dti.add(ev.target.id, "text/plain");
-    // Tell the browser both copy and move are possible
-    ev.effectAllowed = "copyMove";
-  }
+//mark task as urgent
+
+renderTodos();
+saveTodos();

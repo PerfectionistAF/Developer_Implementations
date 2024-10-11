@@ -43,7 +43,6 @@ html {
     margin: 10px 0;
     width: 300px;
     position: relative;
-    cursor: move;
     }}
     
   /* Style for the task box */
@@ -53,13 +52,8 @@ html {
     margin: 10px 0;
     width: 300px;
     position: relative;
-    cursor: move;  /* Makes the task box draggable */
   }
   
-  .task-box.dragging {
-    opacity: 0.5; /* Make the element semi-transparent while dragging */
-  }
-
   /*Styles for task box*/
   .task-box .task-header {
     display: flex;
@@ -117,11 +111,11 @@ html {
   .task-list {
     background-color: #c8eeff;
   }
-  
+  /* Styles for the urgent column */
   .urgent {
     background-color: #cfe9ff;
   }
-  
+
   .in-progress {
     background-color: #d8e4ff;
   }

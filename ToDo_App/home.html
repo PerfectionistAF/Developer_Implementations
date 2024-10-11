@@ -19,7 +19,7 @@
                       <label for="task-desc">
                           Task description: <input id="task-desc" type="text" required />
                       </label><br>
-                      <label for="due-date">
+                      <label for="due-date" type="date">
                           Ideally due by: <input id="due-date" type="date" required />
                       </label>
                   </form>
@@ -27,9 +27,9 @@
                     <button class="btn create-task" id="create-task">Create Task</button>
                   </div>
               </div>
-              <div id="task-list-container"></div>
+              <div id="task-list-container" data-drop-target="true"></div> <!-- my tasks here -->
           </div>
-          <div class="column urgent">
+          <div class="column urgent" data-drop-target="true"> <!-- drag here -->
             Urgent
           </div>
           <div class="column in-progress">
