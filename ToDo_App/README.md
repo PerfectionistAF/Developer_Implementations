@@ -58,5 +58,4 @@ Task Scheduler is a web application that allows users to create, manage, and org
 
 
 ## Acknowledgements
-Thanks to the developers of the libraries and tools used in this project.
-Special thanks to the contributors and the open-source community.
+Thanks to the developers of the libraries and tools used in this project. Thank you to @ale11ik for contributing. 
