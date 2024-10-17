@@ -37,9 +37,9 @@
         <!--  Created tasks will show below the 'create task' box in the same column. in this column they will be ordered by date (due soonest). From here they will be available for dragging and dropping to their preferred schedule columns on the right. -->
         <div class="columns-container">
           <div class="column task-list">
-            Task List
+            <h2>Task List</h2>
             <div class="create-task-container" id="">
-              Create Task
+              <h3>Create Task</h3>
               <form method="post" action=''>
                 <label for="task-name">
                   <span>Task name:</span> <!-- span used in combination with css to let input fields and their labels be aligned -->
@@ -56,25 +56,25 @@
                 <div id="error-message" style="color: red;"></div>
               </form>
               <div class="button">
-                <button class="btn create-task" id="create-task">Create Task</button>
+                <button class="create-task" id="create-task">Create Task</button>
               </div>
             </div>
             <div id="task-list-container"></div>
           </div>
           <div class="column urgent">
-            Urgent
+            <h3>Urgent</h3>
             <div id="urgentHeader"></div>
           </div>
           <div class="column in-progress">
-            In Progress
+            <h3>In Progress</h3>
             <div id="inProgressHeader"></div>
           </div>
           <div class="column complete">
-            Complete
+            <h3>Complete</h3>
             <div id="completeHeader"></div>
           </div>
           <div class="column backlog">
-            Backlog
+            <h3>Backlog</h3>
             <div id="backlogHeader"></div>
           </div>
         </div>

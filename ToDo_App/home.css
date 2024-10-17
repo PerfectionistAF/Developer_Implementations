@@ -77,6 +77,12 @@ html {
 	min-width: 20%; /* Minimum width for the label text */
 	max-width: 50%;
 }
+/* Style for the create task button */
+.create-task {
+  bottom: 50px;
+  cursor: pointer;
+  margin-top: 20px;
+}
 
 /* Style for Task List column */
 .task-list {
