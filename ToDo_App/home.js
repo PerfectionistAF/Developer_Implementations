@@ -29,14 +29,17 @@ editButton.innerText = 'Edit';
 const taskHeader = document.createElement('div');
 taskHeader.classList.add('task-header');
 
-const checkbox = document.createElement('input');
-checkbox.type = 'checkbox';
+// Checkbox can be used to manipulate multiple tasks
+//const checkbox = document.createElement('input');
+//checkbox.type = 'checkbox';
+
+// Dropdown menu to change task status
 
 const taskTitle = document.createElement('div');
 taskTitle.classList.add('task-title');
 taskTitle.innerText = taskName;
 
-taskHeader.appendChild(checkbox);
+//taskHeader.appendChild(checkbox);
 taskHeader.appendChild(taskTitle);
 
 // Due date
@@ -165,8 +168,6 @@ function editTask(button) {
     //remove the task such that it can be edited then recreated
     task.remove();
 }
-
-//mark task as urgent
 
 renderTodos();
 saveTodos();
