@@ -4,7 +4,8 @@
 --
 -- Host: 127.0.0.1
 -- User: root
--- Password: 
+-- Password:
+-- Port: 3306 
 -- Generation Time: Oct 17, 2024 at 04:38 PM
 -- Server version: 10.4.32-MariaDB
 -- PHP Version: 8.0.30

@@ -5,12 +5,16 @@ document.getElementById('create-task').addEventListener('click', function (e) {
 //This would mean other code could be written to restore a recently deleted task, using the same 'create task' code by referencing the create task function.
 
 // Get task details from the input fields
+// Create a unique ID for each task
+const taskId = "task-" + new Date().getTime(); // this creates unique id based on timestamp
+// then procee with the rest of the details
 const taskName = document.getElementById('task-name').value;
 const taskDesc = document.getElementById('task-desc').value;
 const d = new Date(document.getElementById('due-date').value);
 const dueDate = d.toDateString();
-const errorMessage = document.getElementById("error-message");
 
+// Generate error message
+const errorMessage = document.getElementById("error-message");
 //Clear previous error message
 errorMessage.textContent = "";
 
@@ -19,9 +23,6 @@ if (taskName === "") {
     errorMessage.textContent = "Error: Task name is required.";
     return; // Stop the execution if the task name is missing
 }
-
-// Create a unique ID for each task
-const taskId = "task-" + new Date().getTime(); // this creates unique id based on timestamp
 
 //Create a new task box
 const taskBox = document.createElement("div");
@@ -131,6 +132,24 @@ document.getElementById('task-name').value = '';
 document.getElementById('task-desc').value = '';
 document.getElementById('due-date').value = '';
 
+/**********************************************************************************/
+    // AJAX request to send data to the server
+    fetch('/create-task', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({ task_id: taskId, task_title: taskName, task_description: taskDesc })
+    })
+    .then(response => response.text())
+    .then(data => {
+        console.log(data);
+        // Optionally, you can add code here to update the UI or notify the user
+		console.log('Task added to database');
+    })
+    .catch(error => console.error('Error:', error));
+//});
+/**********************************************************************************/
 });  // End of create task listener
 
 
