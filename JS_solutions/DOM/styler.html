@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<body>
+<h1>Style Customizer</h1>
+
+<div class="customizer-section">
+  Background Color:
+  <input type="color" id="bg-color" value="#ffffff" onchange="applyBackgroundColor()">
+</div>
+
+<div class="customizer-section">
+  Font:
+  <select id="font-family" onchange="applyFontFamily()">
+    <option value="Arial, sans-serif">Arial</option>
+    <option value="Verdana, sans-serif">Verdana</option>
+    <option value="Helvetica, sans-serif">Helvetica</option>
+    <option value="Times New Roman, serif">Times New Roman</option>
+    <option value="Courier New, monospace">Courier New</option>
+  </select>
+</div>
+
+<p>This is an example text.</p>
+<p id="my_style">This is an example styled text.</p>
+</body>
+</html>

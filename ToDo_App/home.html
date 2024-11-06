@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+  <body>
+    <link rel="stylesheet" type="text/css" href="home.css">
+    <section class="bg">
+      <div class="pageContainer">
+        <div class="title-container">
+          <div class="title">Task Scheduler</div>
+          <div class="dropdown">
+            <button onclick="filterFunction()" class="filterdropbtn">Filter</button>
+            <div id="filterDropdown" class="filter-content">
+              <label>
+                <input type="checkbox" name="filter" value="dueSoon"> Due soon
+              </label>
+              <label>
+                <input type="checkbox" name="filter" value="complete"> Complete
+              </label>
+              <label>
+                <input type="checkbox" name="filter" value="incomplete"> Incomplete
+              </label>
+            </div>
+          </div>
+          <div class="dropdown">
+            <button onclick="sortFunction()" class="sortdropbtn">Sort</button>
+            <div id="sortDropdown" class="sort-content">
+              <label>
+                <input type="checkbox" name="sort" value="dueSoon"> Due soon
+                <!--due within 3 days-->
+              </label>
+              <label>
+                <input type="checkbox" name="sort" value="alphabetical"> Alphabetical
+              </label>
+            </div>
+          </div>
+        </div>
+  
+        <!--  Created tasks will show below the 'create task' box in the same column. in this column they will be ordered by date (due soonest). From here they will be available for dragging and dropping to their preferred schedule columns on the right. -->
+        <div class="columns-container">
+          <div class="column task-list">
+            <h2>Task List</h2>
+            <div class="create-task-container" id="">
+              <h3>Create Task</h3>
+              <form method="post" action=''>
+                <label for="task-name">
+                  <span>Task name:</span> <!-- span used in combination with css to let input fields and their labels be aligned -->
+                  <input id="task-name" type="text" required />
+                </label><br>
+                <label for="task-desc">
+                  <span>Task description:</span>
+                  <input id="task-desc" type="text" required />
+                </label><br>
+                <label for="due-date">
+                  <span>Ideally due by:</span>
+                  <input id="due-date" type="date" required />
+                </label>
+                <div id="error-message" style="color: red;"></div>
+              </form>
+              <div class="button">
+                <button class="create-task" id="create-task">Create Task</button>
+              </div>
+            </div>
+            <div id="task-list-container"></div>
+          </div>
+          <div class="column urgent">
+            <h3>Urgent</h3>
+            <div id="urgentHeader"></div>
+          </div>
+          <div class="column in-progress">
+            <h3>In Progress</h3>
+            <div id="inProgressHeader"></div>
+          </div>
+          <div class="column complete">
+            <h3>Complete</h3>
+            <div id="completeHeader"></div>
+          </div>
+          <div class="column backlog">
+            <h3>Backlog</h3>
+            <div id="backlogHeader"></div>
+          </div>
+        </div>
+      </div>
+      </div>
+    </section>
+    <script src="home.js"></script>
+  </body>
+</html>

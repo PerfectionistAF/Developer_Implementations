@@ -1,0 +1,234 @@
+/* For the background */
+html {
+    background-color: #393939;
+    opacity: 0.8;
+    background-image: radial-gradient(#a1a1a1 0.7px, transparent 0.7px), radial-gradient(#a1a1a1 0.7px, #393939 0.7px);
+    background-size: 28px 28px;
+    background-position: 0 0, 14px 14px;
+  }
+  
+  .bg > .title {
+    font-size: 24px;
+    font-family: 'Montserrat', sans-serif;
+    color: white;
+    background-color: black;
+    padding: 20px;
+    text-align: center;
+    border: 2px solid white;
+    box-shadow: 0 0 5px white;
+    border-radius: 10px;
+    width: 100%;
+    margin: 50px auto; 
+  }
+  
+  /* Fixed SVG Styles */
+  .svg-container {
+    position: fixed;
+    top: 30%; /* Position vertically to align with question 1 */
+    width: 200px;
+    height: 200px;
+    transition: opacity 0.5s ease-in-out;
+    z-index: 10;
+  }
+  
+  #svg1 {
+    left: 0; /* Position on the left */
+  }
+  
+  #svg2 {
+    right: 0; /* Position on the right */
+  }
+  
+  
+  #svg3 {
+    left: 0;
+  }
+  
+  /* Initially hide svg2 */
+  .hidden {
+    opacity: 0;
+  }
+  
+  /* Fade in/out effect */
+  .fade-in {
+    opacity: 1;
+  }
+  
+  .fade-out {
+    opacity: 0;
+  }
+  
+  /* Question 1 */
+  .question1, .question2, .question3, .question4, .question5, Submit {
+    font-family: 'Montserrat', sans-serif;
+    text-align: center;
+    font-size: 24px;
+    color: white;
+    margin: 20px auto;
+    width: 50vw;
+  }
+  
+  /* Headings for Questions + Submit instruction*/
+  .heading1, .heading2, .heading3, .heading4, .heading5, .heading6 {
+    font-family: 'Montserrat', sans-serif;
+    text-align: center;
+    font-size: 30px;
+    color: white;
+    text-shadow: 1px 1px 13px rgba(0, 0, 0, 1),
+               -4px -4px 22px rgba(0, 0, 0, 1);;
+    margin-bottom: 20px; 
+    margin-top:10%;
+  }
+  
+  /* Button styling */
+  .button {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center; /* Center buttons horizontally */
+    gap: 10px; /* Adds space between buttons */
+    width: 100%; /* Ensure the button container takes up full width */
+    margin: 0 auto;
+  }
+  
+  /* Button effects after being clicked: TBC */
+  
+  
+  /* Individual Button Styling */
+  .btn {
+    flex: 1 1 auto;
+    font-size: 24px;
+    margin: 10px;
+    padding: 20px;
+    text-align: center;
+    text-transform: uppercase;
+    transition: 0.5s;
+    background-size: 200% auto;
+    color: black;
+    box-shadow: 0 0 20px #eee;
+    border-radius: 10px;
+    font-family: 'Montserrat', sans-serif;
+  }
+  
+  /* Button Hover Effect */
+  .btn:hover {
+    background-position: right center !important; /* Apply hover effect with higher specificity */
+    transition: background-position 0.5s ease; /* change the direction of the change here */
+  }
+  
+  /* Specific Button Styles */
+  
+  .War {
+    background-image: linear-gradient(to right, #f6d365 0%, #fda085 51%, #f6d365 100%);
+  }
+  
+  .Ref {
+    background-image: linear-gradient(to right, #84fab0 0%, #8fd3f4 51%, #84fab0 100%);
+  }
+  
+  .Cos {
+    background-image: linear-gradient(to right, #726cf8 0%, #e975a8 74%);
+  }
+  
+  .Min {
+    background-image: linear-gradient(to right, #ffffff 0%, #7b7b7b 51%, #ffffff 100%);
+  }
+  
+  /* Question 2 Specific Button Styles */
+  
+  .Che {
+    background-image: linear-gradient(to right, #e9b494 0%, #ffed5b 51%, #e9b494 100%);
+  }
+  
+  .Cho {
+    background-image: linear-gradient(to right, #2f1a0b 0%, #b04200 51%, #2f1a0b 100%);
+  }
+  
+  .Afu {
+    background-image: linear-gradient(to right, #eeaeca 0%, #94bbe9 51%, #eeaeca 100%);
+  }  
+  
+  .But {
+    background-image: linear-gradient(to right, #ffffff 0%, #7b7b7b 51%, #ffffff 100%);
+  }
+  
+  /* Question 3 Specific Button Styles */
+  
+  .Cod {
+    background-image: linear-gradient(to right, #7b7b7b 0%, #ffffff 51%, #7b7b7b 100%);
+  }
+  
+  .Ele {
+    background-image: linear-gradient(to right, #a1b1ff 0%, #92efff 51%, #a1b1ff 100%);
+  }
+  
+  .Toy {
+      background-image: linear-gradient(to right, #ff8484 0%, #fb8dff 51%, #ff8484 100%);
+  }  
+  
+  .Ago {
+    background-image: linear-gradient(to right, #e2b6ff 0%, #ff9a9a 51%, #b6ffa2 100%);
+  }
+  
+  /* Question 4 Specific Button Styles */
+  
+  .Sle {
+    background-image: linear-gradient(to right, #f6d365 0%, #fda085 51%, #f6d365 100%);
+  }
+  
+  .Eat {
+    background-image: linear-gradient(to right, #84fab0 0%, #8fd3f4 51%, #84fab0 100%);
+  }
+  
+  .Exp {
+    background-image: linear-gradient(to right, #726cf8 0%, #e975a8 74%);
+  }
+  
+  .Wat {
+    background-image: linear-gradient(to right, #ffffff 0%, #7b7b7b 51%, #ffffff 100%);
+  }
+  
+  /* Question 5 Specific Button Styles */
+  
+  .Cat {
+    background-image: linear-gradient(to right, #f6d365 0%, #fda085 51%, #f6d365 100%);
+  }
+  
+  .Dog {
+    background-image: linear-gradient(to right, #84fab0 0%, #8fd3f4 51%, #84fab0 100%);
+  }
+  
+  .Mou {
+    background-image: linear-gradient(to right, #726cf8 0%, #e975a8 74%);
+  }
+  
+  .Oth {
+    background-image: linear-gradient(to right, #ffffff 0%, #7b7b7b 51%, #ffffff 100%);
+  }
+  
+  .submit-button {
+      background-image: linear-gradient(to right, #726cf8 0%, #e975a8 74%);
+  }
+  
+  
+  
+  
+  /* 
+  Button designs inspired by:
+  https://codepen.io/pizza3/pen/qmerBv
+  https://codepen.io/pirrera/pen/bqVeGx
+  https://codepen.io/webLeister/pen/XwGENz
+  */
+  
+  /* A cool button design to add opacity and use with another project?:
+  For button:
+   background: rgb(63,94,251);
+    background: radial-gradient(circle, rgba(63,94,251,1) 0%, rgba(70,225,252,1) 100%);
+    background-image: linear-gradient 
+  
+  For bg - not with above button:
+  background-color: #e5e5f7;
+  opacity: 0.3;
+  background: radial-gradient(circle, transparent 20%, #e5e5f7 20%, #e5e5f7 80%, transparent 80%, transparent), radial-gradient(circle, transparent 20%, #e5e5f7 20%, #e5e5f7 80%, transparent 80%, transparent) 50px 50px, linear-gradient(#00ffa8 4px, transparent 4px) 0 -2px, linear-gradient(90deg, #00ffa8 4px, #e5e5f7 4px) -2px 0;
+  background-size: 100px 100px, 100px 100px, 50px 50px, 50px 50px;
+  */
+  

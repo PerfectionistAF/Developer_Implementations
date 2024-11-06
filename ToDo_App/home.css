@@ -1,0 +1,379 @@
+/*style for background*/
+html {
+	background-color: #ffffff;
+	opacity: 1;
+	background-size: 8px 8px;
+	background-image: repeating-linear-gradient(
+		0deg,
+		#bababa,
+		#bababa 0.4px,
+		#ffffff 0.4px,
+		#ffffff
+	);
+}
+
+/* Center the content within the page */
+.pageContainer {
+	display: flex;
+	flex-direction: column;
+	align-items: center; /* Center content horizontally */
+	width: 100%;
+}
+
+.title-container {
+	font-size: 180%;
+	font-family: "Montserrat", sans-serif;
+	color: #1c2741;
+	background-color: #c2f6ff;
+	padding: 1rem;
+	text-align: center;
+	border: 0.1rem solid white;
+	border-radius: 5px;
+	width: 100vw; /* Full width of the viewport */
+	margin: 0 auto; /* Remove any default margins and center the title container */
+	box-sizing: border-box; /* Include padding and borders in width calculation */
+}
+
+/* Style for the columns container */
+.columns-container {
+	display: flex;
+	justify-content: space-between; /* Evenly distributes columns */
+	gap: 7px; /* Space between columns */
+	margin: 0.5% 0;
+	width: 100%; /* Use full width */
+	box-sizing: border-box; /* Ensure padding is part of width calculation */
+}
+
+.create-task-container {
+	border: 1px solid #ccc;
+	padding: 1%;
+	margin: 1% 0;
+	width: 100%;
+	position: relative;
+}
+
+.create-task-container form {
+	display: flex;
+	flex-direction: column;
+	gap: 1%; /* Add some space between rows */
+}
+
+.create-task-container label {
+	display: flex;
+	align-items: center; /* Vertically align label text and input fields */
+	justify-content: space-between;
+}
+
+.create-task-container label input {
+	flex-grow: 1; /* Allow input fields to expand */
+	margin-left: 5%; /* Space between label and input */
+}
+
+.create-task-container label {
+	width: 100%;
+}
+
+.create-task-container label span {
+	min-width: 20%; /* Minimum width for the label text */
+	max-width: 50%;
+}
+/* Style for the create task button */
+.create-task {
+  bottom: 50px;
+  cursor: pointer;
+  margin-top: 20px;
+}
+
+/* Style for Task List column */
+.task-list {
+	flex-grow: 1; /* Ensures columns grow equally */
+	max-width: 330px; /* Maximum width for each column */
+	min-width: 320px; /* Ensures columns don’t shrink too much */
+	display: flex;
+	flex-direction: column;
+	gap: 7px; /* Space between task boxes */
+}
+
+.task-box {
+	border: 1px solid #ccc;
+	padding: 5px;
+	margin: 5px 0;
+	width: 90%; /* Task box is slightly smaller than the column */
+	position: relative;
+	cursor: move; /* Makes the task box draggable */
+	box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+	transition: width 0.2s ease-in-out;
+}
+
+/* Makes the task box expands slightly on hover */
+.task-box:hover {
+	width: 95%;
+}
+
+/* Ensures task columns grow evenly */
+.column {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: flex-start;
+	padding: 10px;
+	border-radius: 0.5rem;
+	border: 1px solid #ccc;
+	color: solid white;
+	background-color: #f9f9f9;
+	flex-grow: 1; /* Makes columns flexible and evenly distributed */
+	max-width: 270px; /* Slightly larger than the task box */
+	min-width: 250px; /* Maximum width for each column */
+	box-sizing: border-box; /* Ensures padding is included in width calculation */
+}
+
+.task-box.dragging {
+	opacity: 0.5; /* Make the element semi-transparent while dragging */
+}
+
+/*Styles for task box*/
+.task-box .task-header {
+	display: flex;
+	align-items: center;
+}
+
+.task-box .task-header input[type="checkbox"] {
+	margin-right: 10px;
+}
+
+.task-box .task-title {
+	font-weight: bold;
+}
+
+.task-box .due-date {
+	color: #555;
+	margin-top: 5px;
+}
+
+.task-box .details {
+	display: none;
+	margin-top: 10px;
+	background: #f8f8f8;
+	padding: 10px;
+	border-top: 1px solid #ccc;
+}
+
+.task-box .toggle-details {
+	position: absolute;
+	bottom: 10px;
+	right: 10px;
+	background-color: #007bff;
+	color: white;
+	border: none;
+	padding: 5px;
+	cursor: pointer;
+}
+
+.task-box .delete-task {
+	position: absolute;
+	top: 5px;
+	right: 5px;
+	width: 50px;
+	cursor: pointer;
+}
+
+.task-box .edit-task {
+	position: absolute;
+	top: 30px;
+	right: 5px;
+	width: 50px;
+	cursor: pointer;
+}
+
+.task-list {
+	background-color: #c8eeff;
+}
+
+.urgent {
+	background-color: #cfe9ff;
+}
+
+.in-progress {
+	background-color: #d8e4ff;
+}
+
+.complete {
+	background-color: #e2dfff;
+}
+
+.backlog {
+	background-color: #ecdaff;
+}
+
+.column.drag-over {
+	border: 2px dashed #007bff;
+	background-color: #f0f8ff;
+}
+
+/* Filter Dropdown Button */
+.filterdropbtn {
+	background-image: linear-gradient(
+		to right,
+		#ece9e6 0%,
+		#ffffff 51%,
+		#ece9e6 100%
+	);
+	margin: 10px;
+	padding: 15px 45px;
+	text-align: center;
+	text-transform: uppercase;
+	transition: 0.5s;
+	background-size: 200% auto;
+	color: black;
+	box-shadow: 0 0 20px #eee;
+	border-radius: 10px;
+	display: block;
+}
+
+.btn-grad:hover {
+	background-position: right center; /* change the direction of the change here */
+	color: #fff;
+	text-decoration: none;
+}
+
+.btn-grad:hover {
+	background-position: right center; /* change the direction of the change here */
+	color: #fff;
+	text-decoration: none;
+}
+
+.btn-grad:hover {
+	background-position: right center; /* change the direction of the change here */
+	color: #fff;
+	text-decoration: none;
+}
+
+/* Dropdown button on hover & focus */
+.filterdropbtn:hover,
+.filterdropbtn:focus {
+	background-color: #2980b9;
+}
+
+/* The container <div> - needed to position the dropdown content */
+.dropdown {
+	position: relative;
+	display: inline-block;
+}
+
+/* Dropdown Content (Hidden by Default) */
+.filter-content {
+	display: none;
+	position: absolute;
+	background-color: #f1f1f1;
+	min-width: 160px;
+	box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+	padding: 12px 16px;
+	z-index: 1;
+}
+
+/* Each filter option with a checkbox */
+.filter-content label {
+	display: flex;
+	align-items: center;
+	padding: 8px 0;
+	font-size: 14px;
+	cursor: pointer;
+}
+
+/* Style for the checkboxes */
+.filter-content input[type="checkbox"] {
+	margin-right: 10px;
+}
+
+/* Show the dropdown when toggled */
+.show {
+	display: block;
+}
+
+/* Change color of dropdown links on hover */
+.filter-content label:hover {
+	background-color: #ddd;
+}
+
+/* Optional: Adjust the spacing and visual effect */
+.filter-content {
+	border-radius: 4px;
+}
+
+/* Dropdown Button */
+.sortdropbtn {
+	background-image: linear-gradient(
+		to right,
+		#ece9e6 0%,
+		#ffffff 51%,
+		#ece9e6 100%
+	);
+	margin: 10px;
+	padding: 15px 45px;
+	text-align: center;
+	text-transform: uppercase;
+	transition: 0.5s;
+	background-size: 200% auto;
+	color: black;
+	box-shadow: 0 0 20px #eee;
+	border-radius: 10px;
+	display: block;
+}
+
+.btn-grad:hover {
+	background-position: right center; /* change the direction of the change here */
+	color: #fff;
+	text-decoration: none;
+}
+
+/* Dropdown button on hover & focus */
+.sortdropbtn:hover,
+.sortdropbtn:focus {
+	background-color: #2980b9;
+}
+
+/* The container <div> - needed to position the dropdown content */
+.dropdown {
+	position: relative;
+	display: inline-block;
+}
+
+/* Dropdown Content (Hidden by Default) */
+.sort-content {
+	display: none;
+	position: absolute;
+	background-color: #f1f1f1;
+	min-width: 160px;
+	box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+	padding: 12px 16px;
+	z-index: 1;
+}
+
+/* Each filter option with a checkbox */
+.sort-content label {
+	display: flex;
+	align-items: center;
+	padding: 8px 0;
+	font-size: 14px;
+	cursor: pointer;
+}
+
+/* Style for the checkboxes */
+.sort-content input[type="checkbox"] {
+	margin-right: 10px;
+}
+
+/* Show the dropdown when toggled */
+.show {
+	display: block;
+}
+
+/* Change color of dropdown links on hover */
+.sort-content label:hover {
+	background-color: #ddd;
+}
+
+/* Optional: Adjust the spacing and visual effect */
+.sort-content {
+	border-radius: 4px;
+}

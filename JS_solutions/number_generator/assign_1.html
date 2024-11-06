@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<!--<html>-->
+<head>
+  <title>W3.CSS Template</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <link rel="stylesheet" href="assign_1.css">
+</head>
+<body class="w3-content" style="max-width:1200px">
+
+  <div class="w3-display-container w3-container">
+    <div class="w3-display-topleft w3-text-white" style="padding:24px 48px">
+      <h1 class="box">WELCOME! Guess the number...</h1>
+      <p><button class="button-9" role="button" onclick="startGame()">START</button></p>
+    </div>
+  </div>
+
+
+<script src="assign_1.js">
+    //test maps Google API
+    var map;
+
+    function initialize() {
+        var myLatlng = new google.maps.LatLng(-25.363882,131.044922);
+        var mapOptions = {
+            zoom: 4,
+            center: myLatlng
+        };
+        map = new google.maps.Map(document.getElementById('map-canvas'),
+        mapOptions);
+  
+        var marker = new google.maps.Marker({
+        position: myLatlng,
+        map: map,
+        title: 'Hello World!'
+        });
+    }
+
+    google.maps.event.addDomListener(window, 'load', initialize);
+</script>
+
+</body>
+<!--</html>-->

@@ -1,0 +1,13 @@
+body {
+    background-color: #ffffff;
+          color: #000000;
+          font-family: Arial, sans-serif;
+        }
+        
+        .customizer-section {
+          margin-bottom: 20px;
+        }
+    #my_style {
+      color: #ff33cc;
+      text-decoration: underline;
+    }
