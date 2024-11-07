@@ -38,7 +38,7 @@ app.get('/api/v1/tasks', (req, res) => {
 
 //SET UP POSTMAN TO TEST API---GET {{URL}}/tasks----DONE
 
-//post to add a task
+//post to CREATE A TASK
 app.post('/api/v1/tasks', (req, res) => {
     res.send('post request')
 })
