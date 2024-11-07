@@ -2,11 +2,15 @@
 //START WITH----------------------- NPM START
 //console.log('Task Manager App')
 
+
 //set up basic express server
 const express = require('express');
 const app = express();
 const tasks = require('./routes/tasks');
 const images = require('./routes/routers2'); //TEST SECOND ROUTER TO SEND IMAGE
+//CONNECT TO DATABASE
+const connectDB = require('./db/connect');
+require('dotenv').config(); //to access the .env file
 
 //to access data via middleware as json
 app.use(express.json())
@@ -40,13 +44,24 @@ app.post('/api/v1/tasks', (req, res) => {
 })
 
 //get a single task by id----TEST ON POSTMAN
-
-
 //edit task by id  //put vs patch 
 //delete by id if applicable
 
+//Connect to MongoDB Atlas, take the connection string then paste it in connect.js
+//Connect to the database via a server, mongoose or mongodb driver in npm
+//Mongoose is an ODM, Object Data Modeling driver, faster development
 
 
 const port = 3000;
+const start = async () => {
+    try{
+        await connectDB(process.env.MONGO_URI);
+        app.listen(port, 'localhost', console.log('server is listening on port', port));
+    }
+    catch(error){
+        console.log(error)
+    }
+}
 
-app.listen(port, 'localhost', console.log('server is listening on port', port));
+start();
+
