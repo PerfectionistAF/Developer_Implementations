@@ -4,7 +4,16 @@ const mongoose = require('mongoose');
 const TaskSchema = new mongoose.Schema({ ///no set structure so requires external schema
 //Database Schema(Mongoose): The actual structure of the database, including tables, columns, data types, and constraints.
 //Data Model(SQL): A conceptual representation of the data and its relationships, used to design the database schema.
-    name:String, completed:Boolean
+    name:{
+        type:String,
+        required:[true, 'Must provide name'],
+        trim:true,
+        length:[20, 'Name cannot be more than 20 characters']
+    },
+    completed:{
+        type:Boolean,
+        default:false
+    },
     //ONLY PROPERTIES HERE WILL BE PASSED TO DATABASE
 });
 
