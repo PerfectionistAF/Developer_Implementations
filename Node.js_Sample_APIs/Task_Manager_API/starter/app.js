@@ -14,7 +14,7 @@ require('dotenv').config(); //to access the .env file
 
 //to access data via middleware as json
 app.use(express.json())
-
+app.use(express.static('./public'))
 //routes
 //get request in js
 app.get('/hello', (req, res) => {    //request, response
