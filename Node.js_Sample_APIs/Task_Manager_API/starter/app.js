@@ -7,21 +7,24 @@
 const express = require('express');
 const app = express();
 const tasks = require('./routes/tasks');
-const images = require('./routes/routers2'); //TEST SECOND ROUTER TO SEND IMAGE
+//const images = require('./routes/routers2'); //TEST SECOND ROUTER TO SEND IMAGE
 //CONNECT TO DATABASE
 const connectDB = require('./db/connect');
-require('dotenv').config(); //to access the .env file
-
+const dotenv = require('dotenv'); //to access the .env file
+const mongoose = require('mongoose');
+dotenv.config();
 //to access data via middleware as json
+
+app.use(express.static('./public'));
 app.use(express.json())
-app.use(express.static('./public'))
+
 //routes
 //get request in js
-app.get('/hello', (req, res) => {    //request, response
+/*app.get('/hello', (req, res) => {    //request, response
     res.send('Task Manager App') //send hardcoded response
-});
+});*/
 
-app.use('/', images) //either use an alias in the endpoint routes or use it in the app routes 
+//app.use('/', images) //either use an alias in the endpoint routes or use it in the app routes 
 
 //REST API
 //get api/v1/tasks
@@ -32,16 +35,16 @@ app.use('/', images) //either use an alias in the endpoint routes or use it in t
 
 //get request to view everything
 app.use('/api/v1/tasks', tasks)  //comment to show response under each route
-app.get('/api/v1/tasks', (req, res) => {
+/*app.get('/api/v1/tasks', (req, res) => {
     res.send('get request') //low priority to the routes/tasks.js
-});
+});*/
 
 //SET UP POSTMAN TO TEST API---GET {{URL}}/tasks----DONE
 
 //post to CREATE A TASK
-app.post('/api/v1/tasks', (req, res) => {
+/*app.post('/api/v1/tasks', (req, res) => {
     res.send('post request')
-})
+})*/
 
 //get a single task by id----TEST ON POSTMAN
 //edit task by id  //put vs patch 

@@ -16,5 +16,6 @@ const TaskSchema = new mongoose.Schema({ ///no set structure so requires externa
     },
     //ONLY PROPERTIES HERE WILL BE PASSED TO DATABASE
 });
+const Task = mongoose.model('Task', TaskSchema);
 
-module.exports = mongoose.model('Task', TaskSchema); //go to controller then start using the model
+module.exports = Task; //go to controller then start using the model
