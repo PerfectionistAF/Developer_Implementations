@@ -28,7 +28,7 @@ const getTask = async (req, res)=>{
     //res.json({id: req.params.id})  //get id from given path and pass it as a parameter
     try{
         const {id:taskID} = req.params; 
-        const single_task = await Task.findOne({_id:taskID}).exec();//findById(taskID);
+        const single_task = await Task.findOne({_id:taskID})//.exec();//findById(taskID);
         if(!single_task){
             return res.status(404).json({msg:`No task with id: ${taskID}`})
         }
@@ -43,8 +43,8 @@ const deleteTask = async (req, res)=>{
     //res.send('Delete a single item from the controller')
     try{
         const {id:taskID} = req.params   //id is in the schema
-        const single_task = await Task.findOne({_id:taskID}).exec();
-        //const task = await Task.findByIdAndDelete(taskID);  //findByIdAndDelete is a mongoose method 
+        const single_task = await Task.findOne({_id:taskID});//.exec();
+        //const task = await Task.findOneAndDelete({_id:taskID});  //findOneAndDelete is a mongoose method 
         if(!single_task){  //!task
             return res.status(404).json({msg:`No task with id or may have been deleted: ${taskID}`})
         }
@@ -67,12 +67,15 @@ const updateTask = async (req, res)=>{
         //findByIdAndUpdate: find by ID returns object, not compatible with AXIOS files in public/browser-app.js
         
         const task =  await Task.findOneAndUpdate({_id:taskID}, req.body, {
-            new:true, runValidators:true
+            new:true,
+            runValidators:true, 
         })
         if(!task){
             return res.status(404).json({msg:`No task with id: ${taskID}`})
         }
-        res.status(200).json({task})//{msg:`Task with id: ${taskID} has been updated successfully`})//id:taskID, data:req.body})
+
+            //CHECK THAT EDIT FORM PROPERLY DISPLAYS DATA IF CORRECT ENDPOINT
+        res.status(200).json({task})//id:taskID, data:req.body})//{msg:`Task with id: ${taskID} has been updated successfully`})//id:taskID, data:req.body})
     }
     catch(error){
         res.status(500).json({msg:error})

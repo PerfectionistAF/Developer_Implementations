@@ -10,9 +10,7 @@ const tasks = require('./routes/tasks');
 //const images = require('./routes/routers2'); //TEST SECOND ROUTER TO SEND IMAGE
 //CONNECT TO DATABASE
 const connectDB = require('./db/connect');
-const dotenv = require('dotenv'); //to access the .env file
-const mongoose = require('mongoose');
-dotenv.config();
+require('dotenv').config(); //to access the .env file
 //to access data via middleware as json
 
 app.use(express.static('./public'));

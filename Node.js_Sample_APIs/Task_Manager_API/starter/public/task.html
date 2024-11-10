@@ -8,8 +8,6 @@
     <link rel="shortcut icon" href="./favicon.ico" type="image/x-icon" />
     <!-- normalize -->
     <link rel="stylesheet" href="./normalize.css" />
-    <!-- js -->
-    <script src="./edit-task.js"></script>
     <!-- main  -->
     <link rel="stylesheet" href="./main.css" />
 
@@ -21,15 +19,15 @@
         <h4>Edit Task</h4>
         <div class="form-control">
           <label>Task ID</label>
-          <p class="task-edit-id"></p>
+          <p class="task-edit-id" id="task-edit-id"></p>
         </div>
         <div class="form-control">
           <label for="name">Name</label>
-          <input type="text" name="name" class="task-edit-name" />
+          <input type="text" name="name" class="task-edit-name" id="task-edit-name" />
         </div>
         <div class="form-control">
           <label for="completed">completed</label>
-          <input type="checkbox" name="completed" class="task-edit-completed" />
+          <input type="checkbox" name="completed" class="task-edit-completed" id="task-edit-completed" />
         </div>
         <button type="submit" class="block btn task-edit-btn">edit</button>
         <div class="form-alert"></div>
@@ -43,6 +41,7 @@
       crossorigin="anonymous"
       referrerpolicy="no-referrer"
     ></script>
-
+    <!-- js -->
+    <script src="./edit-task.js"></script>
   </body>
 </html>
