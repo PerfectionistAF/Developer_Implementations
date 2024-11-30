@@ -1,0 +1,80 @@
+﻿@{
+    Layout = null;
+}
+@{ //ALL MY VARIABLES HERE
+    var date = DateTime.Now.ToShortTimeString();
+    var message = "Hello, this is a test";
+    <text> This is my new experiment now!!</text>
+}
+@model  Sample_App.Models.Student
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Index: @message</title>
+</head>
+<body>
+    <div>
+        <h1>
+            MY STUDENT DATA
+        </h1>
+        <p>
+            <strong>
+                @for (int i = 0; i < 5; i++)
+                {
+                    @i.ToString()<br />
+                }
+            </strong>
+            <!-- Input text-->
+            <ul>
+                <li>Student Id:<input type="text" /> @Model.StudentId</li>
+                <li>Student Name:<input type="text" /> @Model.StudentName</li>
+                <li>Student Age:<input type="text" /> @Model.Age</li>
+            </ul>
+            <br />
+
+
+            HTML Helpers are used in razor views to substitute for longer html tags
+            In this example, we'll be using Html.RadioButton() method instead of
+            <'input type="radio" '/>, without the signle quotes.
+            Our method contains 2 HTML controls: RadioButton() and RadioButtonFor()
+            These methods can be overloaded:
+            'Html.RadioButtonFor[TModel, TProperty]()'
+
+            'Html.RadioButton(HtmlHelper, String, Object)'
+            'html.RadioButton(HtmlHelper, String, Object, Boolean)'
+        </p>
+        <div style="font-size:30px">
+            <!-- atsign model Student-->
+            @Html.RadioButtonFor(m => m.Age, "Above 18_RadioButtonFor")
+            @Html.RadioButtonFor(m => m.Age, "Below 18_RadioButtonFor")
+            
+            @Html.RadioButton("Gender", "Male_RadioButton")
+            @Html.RadioButton("Gender", "Female_RadioButton")
+            </div>
+        </div>
+        <div>
+            <h2 style="color:red;">
+                Test Razor Page: Index from Action method in StudentController
+            </h2>
+            <h2 style="color:blueviolet">
+                @DateTime.Now.ToShortDateString();
+            </h2>
+        </div>
+        <div style="background-color:yellow">
+            <p style="margin:30px;">The date is: @date</p>
+            <br />
+            <p><strong>Now for my greeting: @message</strong></p>
+        </div>
+        <div style="background-color:pink">
+            @if (DateTime.IsLeapYear(DateTime.Now.Year))
+            {
+                @DateTime.Now.Year <text>is a leap year</text>
+            }
+            else
+            {
+                @DateTime.Now.Year <text>is not a leap year</text>
+            }
+        </div>
+    </body>
+    </html>

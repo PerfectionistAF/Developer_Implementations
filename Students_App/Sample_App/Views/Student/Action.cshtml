@@ -1,0 +1,59 @@
+﻿@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Action</title>
+</head>
+<body>
+    <div style="background-color:pink">
+        @ViewBag.Name
+    </div>
+    <div>
+        <h2>
+            @ViewBag.vb
+        </h2>
+        <h3 style="color:crimson">
+            @ViewData["myKey"]
+        </h3>
+        <h4>
+            @foreach(string x in (List<string>)ViewData["keydata"]) //Output elements as text
+            {
+                <text>@x </text>         
+                <br />
+            }
+        </h4>
+    </div>
+    <div style="background-color:burlywood">
+        <h2>Add Students here</h2>
+        <!--foreach (var s in (List<string>)ViewData["stds"])//Typecast as List String
+                                                //{
+                                                //<text>s</text>
+                                                //}  -->
+        <p>
+            @model Sample_App.Models.Student
+            <ul>
+                @foreach (var s in ViewData["stds"] as System.Collections.Generic.IList<string>)
+                {
+                    <li>
+                        @Model.StudentName
+                    </li>
+                }
+            </ul>
+            <!--GIVES ERROR
+        foreach (var s in ViewData["stds"] as IList<Student>)
+        {
+        <li>
+        s.StudentName
+        </li>
+        }
+        -->
+        </p>
+
+    </div>
+</body>
+</html>
