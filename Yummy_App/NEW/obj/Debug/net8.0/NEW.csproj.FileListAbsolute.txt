@@ -1,0 +1,15 @@
+E:\VSprojects\JS_And_Frameworks\Developer_Implementations\Yummy_App\NEW\bin\Debug\net8.0\NEW.exe
+E:\VSprojects\JS_And_Frameworks\Developer_Implementations\Yummy_App\NEW\bin\Debug\net8.0\NEW.deps.json
+E:\VSprojects\JS_And_Frameworks\Developer_Implementations\Yummy_App\NEW\bin\Debug\net8.0\NEW.runtimeconfig.json
+E:\VSprojects\JS_And_Frameworks\Developer_Implementations\Yummy_App\NEW\bin\Debug\net8.0\NEW.dll
+E:\VSprojects\JS_And_Frameworks\Developer_Implementations\Yummy_App\NEW\bin\Debug\net8.0\NEW.pdb
+E:\VSprojects\JS_And_Frameworks\Developer_Implementations\Yummy_App\NEW\obj\Debug\net8.0\NEW.GeneratedMSBuildEditorConfig.editorconfig
+E:\VSprojects\JS_And_Frameworks\Developer_Implementations\Yummy_App\NEW\obj\Debug\net8.0\NEW.AssemblyInfoInputs.cache
+E:\VSprojects\JS_And_Frameworks\Developer_Implementations\Yummy_App\NEW\obj\Debug\net8.0\NEW.AssemblyInfo.cs
+E:\VSprojects\JS_And_Frameworks\Developer_Implementations\Yummy_App\NEW\obj\Debug\net8.0\NEW.csproj.CoreCompileInputs.cache
+E:\VSprojects\JS_And_Frameworks\Developer_Implementations\Yummy_App\NEW\obj\Debug\net8.0\NEW.sourcelink.json
+E:\VSprojects\JS_And_Frameworks\Developer_Implementations\Yummy_App\NEW\obj\Debug\net8.0\NEW.dll
+E:\VSprojects\JS_And_Frameworks\Developer_Implementations\Yummy_App\NEW\obj\Debug\net8.0\refint\NEW.dll
+E:\VSprojects\JS_And_Frameworks\Developer_Implementations\Yummy_App\NEW\obj\Debug\net8.0\NEW.pdb
+E:\VSprojects\JS_And_Frameworks\Developer_Implementations\Yummy_App\NEW\obj\Debug\net8.0\NEW.genruntimeconfig.cache
+E:\VSprojects\JS_And_Frameworks\Developer_Implementations\Yummy_App\NEW\obj\Debug\net8.0\ref\NEW.dll
