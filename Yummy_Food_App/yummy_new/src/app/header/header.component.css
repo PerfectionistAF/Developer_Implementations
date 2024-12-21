@@ -1,0 +1,36 @@
+header{
+    background-color: white;
+    padding: 0;
+    border-bottom: 1px solid #e72929;
+}
+
+a{
+    /*anchor elements inside header component file*/
+    color: #af1313;
+}
+
+a:hover{
+    background-color: #e72929;
+    color: white;
+}
+
+.container{
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+}
+
+a.logo{
+    font-weight: bold;
+    padding: 1rem;  /*padding around the logo = 1 x 18(font size)*/
+}
+
+nav ul{
+    list-style-type: none; /*remove bullet points*/
+    margin: 0;
+}
+
+nav ul li a {
+    padding: 1rem;
+    display: inline-block;
+}

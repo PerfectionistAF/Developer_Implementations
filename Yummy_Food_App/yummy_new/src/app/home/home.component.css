@@ -1,0 +1,16 @@
+ul {
+    list-style-type: none; /* Remove bullets from the list */
+    padding: 0; /* Remove default padding */
+    margin: 0; /* Remove default margin */
+}
+
+ul li {
+    list-style-type: none; /* Ensure no bullets are shown for list items */
+    list-style: none; /* Ensure no bullets are shown for list items */
+}
+
+ul li img {
+    width: 50%;
+    height: 50%;
+    padding: 10px;
+}

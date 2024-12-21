@@ -1,0 +1,15 @@
+header{
+    background-color: white;
+    padding: 0;
+    border-bottom: 1px solid #e72929;
+}
+
+a{
+    /*anchor elements inside header component file*/
+    color: #af1313;
+}
+
+a:hover{
+    background-color: #e72929;
+    color: white;
+}
