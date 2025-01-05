@@ -1,17 +1,11 @@
 <?php
-#session_start();
-##connect
-include_once("./includes/conn.php");
-##try if logged in
-include_once("./includes/logged.php");
-##status in case cannot edit
-$status = false;
-$again = false;
-	if(isset($_GET["id"])){
-		$id = $_GET["id"];
-		$status = true;
-	}
-	if($_SERVER["REQUEST_METHOD"]=="POST"){
+include_once("includes/logged.php");
+include_once("includes/conn.php"); #connect
+$request = false;
+if($_SERVER["REQUEST_METHOD"]=="POST"){
+	$request = true;  
+	#$category = $_POST["category"];
+	#if($category>0){
 		$title = $_POST["title"];
 		$content = $_POST["content"];
 		$luggage = $_POST["luggage"];
@@ -25,28 +19,24 @@ $again = false;
 		  else{
 			  $active = 0;
 		  }
-		$categorytype = $_POST["categorytype"];
+		#$categorytype = $_POST["cat_name"];
+		$cat_id = $_POST["cat_id"];
+		include_once("includes/addimage.php");
+	#}
 
-		$oldImage = $_POST["oldImage"];
-		
-		include_once("includes/updateImage.php");
-
-			try{
-				$sql = "UPDATE `cars_table` SET `title`=?, `image=?`, `content`=?, `luggage`=?, `doors`=?, `passengers`=?, `price`=?, `image`=?, `active`=?, `categorytype`=? WHERE id = ?";
-				$stmt = $conn->prepare($sql);
-				$stmt->execute([$title, $content, $luggage, $doors, $passengers, $price, $active, $categorytype, $image_name, $id]);
-				#echo "CAR UPDATED SUCCESSFULLY";
-				header("Location:cars.php");
-				die();
-			}catch(PDOException $e){
-				header("Location:includes/404.php");
-				echo "FAILED TO EDIT CAR: " . $e->getMessage();
-				die();
-			}
+	try{
+		$sql = "INSERT INTO `cars_table`(`title`, `content`, `luggage`, `doors`, `passengers`, `price`, `active`, `image`) VALUES (?,?,?,?,?,?,?,?)";
+		$stmt = $conn->prepare($sql);
+		$stmt->execute([$title, $content, $luggage, $doors, $passengers, $price, $active, $image_name]);
+		#echo "CAR ADDED SUCCESSFULLY";
+		header("Location:cars.php");
+		die();
+	}catch(PDOException $e){
+		header("Location:includes/404.php");
+		echo "FAILED TO INSERT CAR" . $e->getMessage();
+		die();
 	}
-	
-	//show details
-	include_once("includes/showCarDetails.php");
+}
 ?>
 
 <!DOCTYPE html>
@@ -58,7 +48,7 @@ $again = false;
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 
-	<title>Rent Car Admin | Edit Car</title>
+	<title>Rent Car Admin | Add Car</title>
 
 	<!-- Bootstrap -->
 	<link href="vendors/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
@@ -82,7 +72,7 @@ $again = false;
 	<!-- Custom Theme Style -->
 	<link href="build/css/custom.min.css" rel="stylesheet">
 </head>
-
+<?php #if($request){?>
 <body class="nav-md">
 	<div class="container body">
 		<div class="main_container">
@@ -273,7 +263,7 @@ $again = false;
 						<div class="col-md-12 col-sm-12 ">
 							<div class="x_panel">
 								<div class="x_title">
-									<h2>Edit Car</h2>
+									<h2>Add Car</h2>
 									<ul class="nav navbar-right panel_toolbox">
 										<li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
 										</li>
@@ -293,50 +283,50 @@ $again = false;
 								</div>
 								<div class="x_content">
 									<br />
-									<form method="POST" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" id="demo-form2" data-parsley-validate class="form-horizontal form-label-left">
+									<form method="POST" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" id="demo-form2" data-parsley-validate class="form-horizontal form-label-left" enctype="multipart/form-data">
 										<div class="item form-group">
 											<label class="col-form-label col-md-3 col-sm-3 label-align" for="title">Title <span class="required">*</span>
 											</label>
 											<div class="col-md-6 col-sm-6 ">
-												<input type="text" id="title" name="title" required="required" class="form-control" value="<?php echo $title?>">
+												<input type="text" id="title" name="title" required="required" class="form-control ">
 											</div>
 										</div>
 										<div class="item form-group">
 											<label class="col-form-label col-md-3 col-sm-3 label-align" for="content">Content <span class="required">*</span>
 											</label>
 											<div class="col-md-6 col-sm-6 ">
-												<textarea id="content" name="content" required="required" class="form-control" value="<?php echo $content?>">Contents</textarea>
+												<textarea id="content" name="content" required="required" class="form-control">Contents</textarea>
 											</div>
 										</div>
 										<div class="item form-group">
 											<label for="luggage" class="col-form-label col-md-3 col-sm-3 label-align">Luggage <span class="required">*</span></label>
 											<div class="col-md-6 col-sm-6 ">
-												<input id="luggage" class="form-control" type="number" name="luggage" required="required" value="<?php echo $luggage?>">
+												<input id="luggage" class="form-control" type="number" name="luggage" required="required">
 											</div>
 										</div>
 										<div class="item form-group">
 											<label for="doors" class="col-form-label col-md-3 col-sm-3 label-align">Doors <span class="required">*</span></label>
 											<div class="col-md-6 col-sm-6 ">
-												<input id="doors" class="form-control" type="number" name="doors" required="required" value="<?php echo $doors?>">
+												<input id="doors" class="form-control" type="number" name="doors" required="required">
 											</div>
 										</div>
 										<div class="item form-group">
 											<label for="passengers" class="col-form-label col-md-3 col-sm-3 label-align">Passengers <span class="required">*</span></label>
 											<div class="col-md-6 col-sm-6 ">
-												<input id="passengers" class="form-control" type="number" name="passengers" required="required" value="<?php echo $passengers?>">
+												<input id="passengers" class="form-control" type="number" name="passengers" required="required">
 											</div>
 										</div>
 										<div class="item form-group">
 											<label for="price" class="col-form-label col-md-3 col-sm-3 label-align">Price <span class="required">*</span></label>
 											<div class="col-md-6 col-sm-6 ">
-												<input id="price" class="form-control" type="number" name="price" required="required" value="<?php echo $price?>">
+												<input id="price" class="form-control" type="number" name="price" required="required">
 											</div>
 										</div>
 										<div class="item form-group">
 											<label class="col-form-label col-md-3 col-sm-3 label-align">Active</label>
 											<div class="checkbox">
 												<label>
-													<input type="checkbox" class="flat" <?php echo $activeBox?>>
+													<input type="checkbox" name="active" value="<?php echo $active?>" class="flat">
 												</label>
 											</div>
 										</div>
@@ -344,8 +334,7 @@ $again = false;
 											<label class="col-form-label col-md-3 col-sm-3 label-align" for="image">Image <span class="required">*</span>
 											</label>
 											<div class="col-md-6 col-sm-6 ">
-												<input type="file" id="image" name="image"  class="form-control"><!--required="required"-->
-												<img src="../images/<?php echo $image?>" alt="" style="width: 300px;">
+												<input type="file" id="image" name="image" required="required" class="form-control" accept="image/*">
 											</div>
 										</div>
 
@@ -355,18 +344,22 @@ $again = false;
 											<div class="col-md-6 col-sm-6 ">
 												<select class="form-control" name="categorytype" id="">
 													<option value=" ">Select Category</option>
-													<option value="0" <?php echo $sedanStr ?>>sedan</option>
-													<option value="1" <?php echo $crossoverStr ?>>crossover</option>
+													<?php
+													    $categories = $conn->query("SELECT * FROM categories_table");
+														while ($category = $categories->fetch(PDO::FETCH_ASSOC)) {
+															echo "<option value='" . $category['id'] . "'>" . $category['categoryname'] . "</option>";
+														}
+													?>
+													<!--<option value="0">sedan</option>
+													<option value="1">crossover</option>-->
 												</select>
 											</div>
 										</div>
 										<div class="ln_solid"></div>
 										<div class="item form-group">
 											<div class="col-md-6 col-sm-6 offset-md-3">
-											<a href="cars.php"><button class="btn btn-primary" type="button">Cancel</button></a>
-												<button type="submit" onclick="return confirm('CAR UPDATED SUCCESSFULLY')" class="btn btn-success">
-													Update
-												</button>
+												<a href="cars.php"><button class="btn btn-primary" type="button">Cancel</button></a>
+												<button type="submit" onclick="return confirm('CAR INSERTED SUCCESSFULLY')" class="btn btn-success">Add</button>
 											</div>
 										</div>
 
@@ -427,4 +420,10 @@ $again = false;
 	<!-- Custom Theme Scripts -->
 	<script src="build/js/custom.min.js"></script>
 
-</body></html>
+</body>
+<?php
+# } 
+#else{
+	#include_once("includes/404.php");
+#}?>
+</html>

@@ -1,43 +1,35 @@
 <?php
-include_once("includes/logged.php");
-include_once("includes/conn.php"); #connect
-$request = false;
-if($_SERVER["REQUEST_METHOD"]=="POST"){
-	$request = true;  
-	#$category = $_POST["category"];
-	#if($category>0){
-		$title = $_POST["title"];
-		$content = $_POST["content"];
-		$luggage = $_POST["luggage"];
-		$doors = $_POST["doors"];
-		$passengers = $_POST["passengers"];
-		$price = $_POST["price"];
-		$active = $_POST["active"];
-		if(isset($_POST["active"])){
-			$active = 1;
-		  }
-		  else{
-			  $active = 0;
-		  }
-		$categorytype = $_POST["categorytype"];
-		include_once("includes/addimage.php");
-	#}
-
-	try{
-		$sql = "INSERT INTO `cars_table`(`title`, `content`, `luggage`, `doors`, `passengers`, `price`, `active`, `image`) VALUES (?,?,?,?,?,?,?,?)";
-		$stmt = $conn->prepare($sql);
-		$stmt->execute([$title, $content, $luggage, $doors, $passengers, $price, $active, $image_name]);
-		#echo "CAR ADDED SUCCESSFULLY";
-		header("Location:cars.php");
-		die();
-	}catch(PDOException $e){
-		header("Location:includes/404.php");
-		echo "FAILED TO INSERT CAR" . $e->getMessage();
-		die();
+#session_start();
+##connect
+include_once("./includes/conn.php");
+##try if logged in
+include_once("./includes/logged.php");
+##status in case cannot edit
+$status = false;
+	if(isset($_GET["id"])){
+		$id = $_GET["id"];
+		$status = true;
 	}
-}
+	if($_SERVER["REQUEST_METHOD"]=="POST"){
+		$categoryname = $_POST["categoryname"];
+		
+			try{
+				$sql = "UPDATE `categories_table` SET `categoryname`= ? WHERE `id` = ?";
+				$stmt = $conn->prepare($sql);
+				$stmt->execute([$categoryname, $id]);
+				#echo "CATEGORY UPDATED SUCCESSFULLY";
+				header("Location:cars.php");
+				die();
+			}catch(PDOException $e){
+				header("Location:includes/404.php");
+				echo "FAILED TO EDIT CATEGORY: " . $e->getMessage();
+				die();
+			}
+	}
+	
+	//show details
+	include_once("includes/showCategoryDetails.php");
 ?>
-
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -47,7 +39,7 @@ if($_SERVER["REQUEST_METHOD"]=="POST"){
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 
-	<title>Rent Car Admin | Add Car</title>
+	<title>Rent Car Admin | Edit Category</title>
 
 	<!-- Bootstrap -->
 	<link href="vendors/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
@@ -71,7 +63,7 @@ if($_SERVER["REQUEST_METHOD"]=="POST"){
 	<!-- Custom Theme Style -->
 	<link href="build/css/custom.min.css" rel="stylesheet">
 </head>
-<?php #if($request){?>
+
 <body class="nav-md">
 	<div class="container body">
 		<div class="main_container">
@@ -243,7 +235,7 @@ if($_SERVER["REQUEST_METHOD"]=="POST"){
 				<div class="">
 					<div class="page-title">
 						<div class="title_left">
-							<h3>Manage Cars</h3>
+							<h3>Edit Category</h3>
 						</div>
 
 						<div class="title_right">
@@ -262,7 +254,7 @@ if($_SERVER["REQUEST_METHOD"]=="POST"){
 						<div class="col-md-12 col-sm-12 ">
 							<div class="x_panel">
 								<div class="x_title">
-									<h2>Add Car</h2>
+									<h2>Edit Category</h2>
 									<ul class="nav navbar-right panel_toolbox">
 										<li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
 										</li>
@@ -282,77 +274,23 @@ if($_SERVER["REQUEST_METHOD"]=="POST"){
 								</div>
 								<div class="x_content">
 									<br />
-									<form method="POST" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" id="demo-form2" data-parsley-validate class="form-horizontal form-label-left" enctype="multipart/form-data">
-										<div class="item form-group">
-											<label class="col-form-label col-md-3 col-sm-3 label-align" for="title">Title <span class="required">*</span>
-											</label>
-											<div class="col-md-6 col-sm-6 ">
-												<input type="text" id="title" name="title" required="required" class="form-control ">
-											</div>
-										</div>
-										<div class="item form-group">
-											<label class="col-form-label col-md-3 col-sm-3 label-align" for="content">Content <span class="required">*</span>
-											</label>
-											<div class="col-md-6 col-sm-6 ">
-												<textarea id="content" name="content" required="required" class="form-control">Contents</textarea>
-											</div>
-										</div>
-										<div class="item form-group">
-											<label for="luggage" class="col-form-label col-md-3 col-sm-3 label-align">Luggage <span class="required">*</span></label>
-											<div class="col-md-6 col-sm-6 ">
-												<input id="luggage" class="form-control" type="number" name="luggage" required="required">
-											</div>
-										</div>
-										<div class="item form-group">
-											<label for="doors" class="col-form-label col-md-3 col-sm-3 label-align">Doors <span class="required">*</span></label>
-											<div class="col-md-6 col-sm-6 ">
-												<input id="doors" class="form-control" type="number" name="doors" required="required">
-											</div>
-										</div>
-										<div class="item form-group">
-											<label for="passengers" class="col-form-label col-md-3 col-sm-3 label-align">Passengers <span class="required">*</span></label>
-											<div class="col-md-6 col-sm-6 ">
-												<input id="passengers" class="form-control" type="number" name="passengers" required="required">
-											</div>
-										</div>
-										<div class="item form-group">
-											<label for="price" class="col-form-label col-md-3 col-sm-3 label-align">Price <span class="required">*</span></label>
-											<div class="col-md-6 col-sm-6 ">
-												<input id="price" class="form-control" type="number" name="price" required="required">
-											</div>
-										</div>
-										<div class="item form-group">
-											<label class="col-form-label col-md-3 col-sm-3 label-align">Active</label>
-											<div class="checkbox">
-												<label>
-													<input type="checkbox" name="active" value="<?php echo $active?>" class="flat">
-												</label>
-											</div>
-										</div>
-										<div class="item form-group">
-											<label class="col-form-label col-md-3 col-sm-3 label-align" for="image">Image <span class="required">*</span>
-											</label>
-											<div class="col-md-6 col-sm-6 ">
-												<input type="file" id="image" name="image" required="required" class="form-control" accept="image/*">
-											</div>
-										</div>
+									<form method="POST" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" id="demo-form2" data-parsley-validate class="form-horizontal form-label-left">
 
 										<div class="item form-group">
-											<label class="col-form-label col-md-3 col-sm-3 label-align" for="title">Category <span class="required">*</span>
+											<label class="col-form-label col-md-3 col-sm-3 label-align" for="categoryname">Edit Category <span class="required">*</span>
 											</label>
 											<div class="col-md-6 col-sm-6 ">
-												<select class="form-control" name="categorytype" id="">
-													<option value=" ">Select Category</option>
-													<option value="0">sedan</option>
-													<option value="1">crossover</option>
-												</select>
+												<input type="text" id="categoryname" name="categoryname" value="<?php echo $categoryname?>" required="required" class="form-control">
 											</div>
 										</div>
+										
 										<div class="ln_solid"></div>
 										<div class="item form-group">
 											<div class="col-md-6 col-sm-6 offset-md-3">
-												<a href="cars.php"><button class="btn btn-primary" type="button">Cancel</button></a>
-												<button type="submit" onclick="return confirm('CAR INSERTED SUCCESSFULLY')" class="btn btn-success">Add</button>
+											<a href="categories.php"><button class="btn btn-primary" type="button">Cancel</button></a>
+												<button type="submit" onclick="return confirm('CATEGORY UPDATED SUCCESSFULLY')" class="btn btn-success">
+													Update
+												</button>
 											</div>
 										</div>
 
@@ -413,10 +351,4 @@ if($_SERVER["REQUEST_METHOD"]=="POST"){
 	<!-- Custom Theme Scripts -->
 	<script src="build/js/custom.min.js"></script>
 
-</body>
-<?php
-# } 
-#else{
-	#include_once("includes/404.php");
-#}?>
-</html>
+</body></html>
