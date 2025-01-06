@@ -12,8 +12,19 @@ Implement various developer tech stacks, JS frameworks, full stack and cloud/con
 
 [Screen Recording - Made with FlexClip (1).webm](https://github.com/user-attachments/assets/c19123fe-2323-4b2f-ae4d-c7bbc3d65ffb)
 
+## 3. Angular, Node.js APIs: Weather API
 
-## 3. Angular, Nodejs: Yummy App
+
+https://github.com/user-attachments/assets/42f8b345-445f-428c-9703-992596660236
 
 
-## 4. C#, jquery: Yummy App
+## 4. PHP, HTML, SASS: Car Rental App (maintenance in progress due to possibly deprecated syntax sending wrong type of requests)
+
+
+https://github.com/user-attachments/assets/108e41ca-9f88-4e1c-a42e-b945fc08685b
+
+
+## 5. Angular, Nodejs: Yummy App
+
+
+## 6. C#, jquery: Yummy App
