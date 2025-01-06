@@ -41,3 +41,22 @@ ADD FOODS PROPERTY TO THE HOME COMPONENT AND CALL THE GETALL FUNCTION INSIDE NGO
 home.component.ts
 
 SHOW IMAGES INSIDE HOME TEMPLATE FILE----home.component.html
+
+4) Add API endpoint
+app.module.ts----->HTTP module nad providers foodservice
+food.service.ts--->Method to get 1 request response from the endpoint
+home.component.ts->Call the service method to return output 5 times
+
+5) STYLE PICTURES IN FRONTEND
+ UL selector and middle aligned and justify
+ <a> inside home cmponent----ANCHOR TAG
+ check styles.css
+ Check HOVER
+
+6) FOOD THUMBNAIL details, and models
+Added from endpoint in food.service.ts
+MODELS------shared folder between components and services
+models to hold all the shared models
+CREATE FOD MODEL INSIDE IT TO STORE INFO FROM THE ENDPOINT RETURNS
+food.service.ts RETURN MODELS RATHER THAN IMAGES
+ADD FOOD CARD DETAILS COMPONENT------->rating library, VIDEO 5: https://youtu.be/WdlNk3AiKXc?si=sQyi9DehXNtjM936

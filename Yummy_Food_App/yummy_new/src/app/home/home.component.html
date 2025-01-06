@@ -1,18 +1,32 @@
-<header>
-    <div class="container">
-        <a href="#" routerLink="/" class="logo"> Yummy! </a> 
-        <!-- routerLink="" is a directive that tells Angular to navigate to the root URL 
-         when the logo is clicked CLIENT ROUTE NOT SERVER ROUTE-->
-        <nav>
-            <ul>
-                <li><a href="#" routerLink="/cart-page">My Cart</a></li>
-            </ul>
-        </nav>
-    </div>
-</header>
 
-<ul>
+<!--<ul>
     <li *ngFor="let food of foods">
         <img src="{{food}}" alt=""/> 
     </li>
+</ul>-->
+<ul>
+    <li *ngFor="let meal of menus; let i = index">
+        <a>
+            <img src="{{meal.strMealThumb}}" alt=""/>
+        </a>
+        <div class="content">
+            <div class="name">
+                {{ names[i] }}
+            </div>
+            <div class="category">
+                {{meal.strCategory}}
+            </div>
+            <div class="area">
+                {{ caption[i] }}
+            </div>
+        </div>
+    </li>
+    <!--<li *ngFor="let meal of foods">
+        <a>
+            <img src="{{meal.strMealThumb}}" alt=""/>
+        </a>
+        <p>{{meal.strMeal}}</p>
+        <p>{{meal.strCategory}}</p>
+        <p>{{meal.strArea}}</p>
+    </li>-->
 </ul>

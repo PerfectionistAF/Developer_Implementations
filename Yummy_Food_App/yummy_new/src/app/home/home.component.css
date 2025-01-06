@@ -1,42 +1,9 @@
-header{
-    background-color: white;
-    padding: 0;
-    border-bottom: 1px solid #e72929;
-}
-
-a{
-    /*anchor elements inside header component file*/
-    color: #af1313;
-}
-
-a:hover{
-    background-color: #e72929;
-    color: white;
-}
-
-.container{
-    margin: 0 auto;
-    display: flex;
-    justify-content: space-between;
-}
-
-a.logo{
-    font-weight: bold;
-    padding: 1rem;  /*padding around the logo = 1 x 18(font size)*/
-}
-
-nav ul{
-    list-style-type: none; /*remove bullet points*/
-    margin: 0;
-}
-
-nav ul li a {
-    padding: 1rem;
-    display: inline-block;
-}
-
 
 ul {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
     list-style-type: none; /* Remove bullets from the list */
     padding: 0; /* Remove default padding */
     margin: 0; /* Remove default margin */
@@ -48,7 +15,62 @@ ul li {
 }
 
 ul li img {
-    width: 50%;
-    height: 50%;
+    width: 100%;
+    height: 100%;
     padding: 10px;
+}
+
+li a {
+    height: 20rem;
+    width: 20rem;
+    border: 0px solid whitesmoke;
+    border-radius: 1rem;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1), 0 6px 20px rgba(0, 0, 0, 0.1); /* Add shadows */
+    margin: 0.5rem;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+    color: brown;
+}
+
+ul li a {
+    height: 20rem;
+    width:20rem;
+    border: 1px solid whitesmoke;
+    border-radius: 1rem;
+    margin: 0.2 rem;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+    color: brown;
+}
+
+.content {
+    display: flex;
+    justify-content: space-between;
+    padding: 0.5rem 1rem;
+    position: relative;
+    color: brown; /* Make text brown */
+}
+  
+.name {
+    font-size: 16px;
+    /*font-weight: bold;*/
+    /*margin-bottom: 0.5rem;*/
+    text-align: left;
+    color: brown; /* Make text brown */
+}
+  
+.category, .area {
+    position: relative;
+    right: 1rem;
+    font-size: 14px;
+    text-align: right;
+    color: brown; /* Make text brown */
+    /*margin-bottom: 0.5rem;*/
+}
+
+li a:hover {
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2), 0 12px 40px rgba(0, 0, 0, 0.2); /* Increase shadow on hover */
+    cursor: pointer;
 }
