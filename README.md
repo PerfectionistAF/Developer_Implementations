@@ -2,7 +2,7 @@
 
 Implement various developer tech stacks, JS frameworks, full stack and cloud/containerization tools
 
-#### Most recent: [Yummy App](#5. angular, nodejs: yummy app (in progress, check commit history for 08/01/25)) 
+#### Most recent: [Yummy App](#5.-angular,-nodejs:-yummy-app-(in-progress,-check-commit-history-for-08/01/25)) 
 
 ## 1. JS Productivity App: ToDo_App Demo
 
