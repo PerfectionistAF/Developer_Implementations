@@ -1,23 +1,24 @@
-
+<app-search></app-search>
 <!--<ul>
     <li *ngFor="let food of foods">
         <img src="{{food}}" alt=""/> 
     </li>
 </ul>-->
 <ul>
-    <li *ngFor="let meal of menus; let i = index">
+    <li *ngFor="let meal of filtered; let i = index">
         <a>
             <img src="{{meal.strMealThumb}}" alt=""/>
         </a>
         <div class="content">
             <div class="name">
-                {{ names[i] }}
+                {{ meal.strMeal }}
             </div>
-            <div class="category">
+            <!--<div class="category">
                 {{meal.strCategory}}
-            </div>
+            </div>-->
             <div class="area">
-                {{ caption[i] }}
+                <img src="{{flags[i]}}" alt="{{ meal.strArea }} Flag" >
+                <!--{{ meal.strArea }}-->
             </div>
         </div>
     </li>

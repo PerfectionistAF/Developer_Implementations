@@ -33,6 +33,10 @@ export class FoodService {
     return this.http.get(this.apiUrl);     ///ENTIRE REQUEST AND DETAILS, meal_db_api.json
   }
 
+  searchFood(searchTerm: string): Observable<any> {
+    return this.http.get(this.apiUrl + searchTerm);
+  }
+  
   /************WRONG IMPLEMENTATION SINCE MODEL SHOULD HAVE SAME SCHEMA******************/
   getFoodModel(): Observable<Food> {
     return this.http.get<Food>(this.apiUrl);  ///ONLY THE FOOD MODEL

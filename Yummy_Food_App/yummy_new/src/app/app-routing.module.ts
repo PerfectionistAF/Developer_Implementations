@@ -4,6 +4,7 @@ import { HomeComponent } from './home/home.component';
 
 const routes: Routes = [
   {path: '', component: HomeComponent},   //home component is the default
+  {path: 'search/:searchTerm', component: HomeComponent},  //because it goes back to the Home
 ];
 
 @NgModule({

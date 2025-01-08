@@ -60,3 +60,17 @@ models to hold all the shared models
 CREATE FOD MODEL INSIDE IT TO STORE INFO FROM THE ENDPOINT RETURNS
 food.service.ts RETURN MODELS RATHER THAN IMAGES
 ADD FOOD CARD DETAILS COMPONENT------->rating library, VIDEO 5: https://youtu.be/WdlNk3AiKXc?si=sQyi9DehXNtjM936
+
+7) SEARCH FUNCTION: SEARCH FOR CATEGORIES OF FOOD
+---EXTRA: FILTER BY AREA
+Add search route in app-routing.module.ts
+ActivatedRoute: Listen to route inside Home component based on the searchTerm inside the route
+Inject it into property inside home component constructor
+Implement ActivatedRoute in home component
+Implement search bar----->SEARCH COMPONENT ng g c search
+SearchTerm property inside the component
+Text button input in search component template
+Import from home component ActivatedRoute
+
+ADD SEARCH INTO THE HOME COMPONENT
+PUSH SEARCH TERM INTO URL FOR A NEW SEARCH

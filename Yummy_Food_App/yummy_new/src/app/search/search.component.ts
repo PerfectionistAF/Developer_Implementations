@@ -1,0 +1,29 @@
+import { Component } from '@angular/core';
+import { ActivatedRoute, Router } from '@angular/router';
+//AR--->READING FROM ROUTE
+//R--->WRITING TO ROUTE
+
+@Component({
+  selector: 'app-search',  ///name of component in home.html
+  standalone: false,
+  
+  templateUrl: './search.component.html',
+  styleUrl: './search.component.css'
+})
+export class SearchComponent {
+  searchTerm: string = '';
+  constructor(private route: ActivatedRoute, private router: Router) { }
+
+  ngOnInit(): void {
+    
+    this.route.params.subscribe((params) => {
+      if(params['searchTerm']) {
+        this.searchTerm = params['searchTerm'];
+      }});
+    }
+
+  search(): void {
+
+  }
+
+}
