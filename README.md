@@ -1,4 +1,4 @@
-# Developer_Implementations
+[test_yummy.webm](https://github.com/user-attachments/assets/2e7c957f-ba7d-438b-89e0-08679ffa3467)[test_yummy.webm](https://github.com/user-attachments/assets/10867158-4f6a-47cb-8de5-cf3de762788c)# Developer_Implementations
 
 Implement various developer tech stacks, JS frameworks, full stack and cloud/containerization tools
 
@@ -24,7 +24,10 @@ https://github.com/user-attachments/assets/42f8b345-445f-428c-9703-992596660236
 https://github.com/user-attachments/assets/108e41ca-9f88-4e1c-a42e-b945fc08685b
 
 
-## 5. Angular, Nodejs: Yummy App
+## 5. Angular, Nodejs: Yummy App (in progress, check commit history for 08/01/25)
+
+
+[test_yummy.webm](https://github.com/user-attachments/assets/4ceb1ab7-bfc5-49b1-8175-c2ab90d8ebc7)
 
 
 ## 6. C#, jquery: Yummy App
