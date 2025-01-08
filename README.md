@@ -1,6 +1,8 @@
-[test_yummy.webm](https://github.com/user-attachments/assets/2e7c957f-ba7d-438b-89e0-08679ffa3467)[test_yummy.webm](https://github.com/user-attachments/assets/10867158-4f6a-47cb-8de5-cf3de762788c)# Developer_Implementations
+# Developer_Implementations
 
 Implement various developer tech stacks, JS frameworks, full stack and cloud/containerization tools
+
+#### Most recent: [5. Angular, Nodejs: Yummy App (in progress, check commit history for 08/01/25)] 
 
 ## 1. JS Productivity App: ToDo_App Demo
 
