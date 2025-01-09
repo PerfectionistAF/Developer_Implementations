@@ -1,5 +1,6 @@
 <div>
-    <input type="text" placeholder="Search for a category" [value]="searchTerm">
+    <input type="text" placeholder="Search for a category"  [(ngModel)]="searchTerm" 
+    (change)="search()" />    <!---Use enter button to search -->
     <!-- BIND FROM COMPNENT TO VIEW-->
-    <button>Search</button>
+    <button (click)="search()">Search</button>
 </div>

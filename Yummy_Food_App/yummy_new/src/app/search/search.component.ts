@@ -17,13 +17,16 @@ export class SearchComponent {
   ngOnInit(): void {
     
     this.route.params.subscribe((params) => {
-      if(params['searchTerm']) {
+      if(params['searchTerm']) { ///property of route 
         this.searchTerm = params['searchTerm'];
       }});
     }
 
   search(): void {
-
+    if(this.searchTerm) {
+      this.router.navigateByUrl('/search/' + this.searchTerm);
+    }
+    
   }
 
 }

@@ -74,3 +74,21 @@ Import from home component ActivatedRoute
 
 ADD SEARCH INTO THE HOME COMPONENT
 PUSH SEARCH TERM INTO URL FOR A NEW SEARCH
+From component into view (search), but we also need to get it from home component into search view
+Can't get value the user enters in component search bar, ONLY GET IT VIA HOME
+----USE 2-WAY BINDING
+
+TYPES OF BINDING:
+1) 1 WAY DATA BINDING
+---COMPONENT TO VIEW TEMPLATE--->PROPERTY BINDING(Interpolation, style...etc)
+---VIEW TEMPLATE TO COMPONENT--->EVENT BINDING(Click, change...etc)
+
+2) 2 WAY DATA BINDING
+---PROPERTY BINDING [] + EVENT BINDING () = [( ngModel )]
+--------Click or change searchTerm in view template then call search from component
+--------In component return search results back into view template
+
+---ngModel---->FormsModule
+
+
+Read text and add it inside the router 

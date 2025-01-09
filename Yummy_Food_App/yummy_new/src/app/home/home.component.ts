@@ -43,8 +43,10 @@ export class HomeComponent implements OnInit {
           this.filtered = this.menus.filter((menu: { strCategory: string; }) => 
             menu.strCategory.toLowerCase().includes(params['searchTerm'].toLowerCase())
           );
-        } else {
+        } 
+        else {
           this.filtered = this.menus;
+          alert("No search term found");
         }
       });
     });
