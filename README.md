@@ -4,6 +4,8 @@ Implement various developer tech stacks, JS frameworks, full stack and cloud/con
 
 ### Most recent: [Yummy App](https://github.com/PerfectionistAF/Developer_Implementations/tree/main?tab=readme-ov-file#5-angular-nodejs-yummy-app-in-progress-check-commit-history-for-080125) 
 
+![image](https://github.com/user-attachments/assets/5938d1e9-a608-48ff-8679-718e3815b582)
+
 ## 1. JS Productivity App: ToDo_App Demo
 
 **Refer to file directory for complete code and README**
