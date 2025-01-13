@@ -10,13 +10,15 @@ import { HomeComponent } from './home/home.component';
 
 import { FoodService } from './services/food/food.service';
 import { SearchComponent } from './search/search.component';
+import { DetailsComponent } from './details/details.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     HeaderComponent,
     HomeComponent,
-    SearchComponent
+    SearchComponent,
+    DetailsComponent
   ],
   imports: [
     BrowserModule,
@@ -26,7 +28,7 @@ import { SearchComponent } from './search/search.component';
   ],
   providers: [
     FoodService,
-    //provideClientHydration(withEventReplay())
+    //provideClientHydration(withEventReplay()),
   ],
   bootstrap: [AppComponent]
 })

@@ -8,7 +8,8 @@ import { Food } from '../../shared/models/food';
 export class FoodService {
 
   private apiUrl = 'https://www.themealdb.com/api/json/v1/1/random.php';
-
+  private lookupUrl = 'https://www.themealdb.com/api/json/v1/1/lookup.php?i=';
+  
   constructor(private http: HttpClient) { }
 
   getAll(): Food[]{//String[] {
@@ -40,5 +41,10 @@ export class FoodService {
   /************WRONG IMPLEMENTATION SINCE MODEL SHOULD HAVE SAME SCHEMA******************/
   getFoodModel(): Observable<Food> {
     return this.http.get<Food>(this.apiUrl);  ///ONLY THE FOOD MODEL
+  }
+
+  getMealById(id: number): Observable<any> {
+    let _id = id.toString();
+    return this.http.get(this.lookupUrl + _id);
   }
 }

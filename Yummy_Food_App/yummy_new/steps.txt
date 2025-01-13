@@ -92,3 +92,17 @@ TYPES OF BINDING:
 
 
 Read text and add it inside the router 
+//AR--->READING FROM ROUTE
+//R--->WRITING TO ROUTE
+
+8) FOOD DETAILS PAGE
+Generate new component for food details
+ng g c foodDetails
+
+ng global component Details
+
+Add it to routing module
+routerLink in Home PAGE
+Save the food property in the details component
+Then do as we did to display the data first, go to food service write your method
+then go back to the details component and just call it and dispay the data there 

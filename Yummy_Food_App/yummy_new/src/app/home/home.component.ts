@@ -46,7 +46,7 @@ export class HomeComponent implements OnInit {
         } 
         else {
           this.filtered = this.menus;
-          alert("No search term found");
+          //alert("No search term found");
         }
       });
     });

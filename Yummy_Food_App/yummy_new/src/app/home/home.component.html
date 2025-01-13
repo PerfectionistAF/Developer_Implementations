@@ -6,7 +6,7 @@
 </ul>-->
 <ul>
     <li *ngFor="let meal of filtered; let i = index">
-        <a>
+        <a routerLink="/meal/{{meal.idMeal}}">
             <img src="{{meal.strMealThumb}}" alt=""/>
         </a>
         <div class="content">
