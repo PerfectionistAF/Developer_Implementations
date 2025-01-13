@@ -17,7 +17,7 @@ export class HomeComponent implements OnInit {
   menus: any[] = [];
   filtered: any[] = [];
   //meals: Food[] = [];
-  //names: String[] = [];
+  names: String[] = [];
   //images: String[] = [];
   //caption: String[] = [];
   flags: String[] = [];
@@ -31,11 +31,11 @@ export class HomeComponent implements OnInit {
       this.foodService.getFood().subscribe((data) => {
         this.menus.push(data.meals[0]);
         menu_arr.push(data.meals[0]);
-        //this.names.push(data.meals[0].strMeal.slice(0, 20));
+        this.names.push(data.meals[0].strMeal.slice(0, 23));
         const flagUrl = this.getFlagUrl(data.meals[0].strArea);
         this.flags.push(flagUrl);
         //console.log(data.meals[0].strArea + "--->" + this.caption);
-      
+
         //CORRECTED Apply filtering logic here
       this.route.params.subscribe((params) => {
         // any time the .params change, subscribe into new changes
@@ -62,5 +62,10 @@ export class HomeComponent implements OnInit {
     const alpha2Code = nationalities.getAlpha2Code(nationality, "en");
     const flagUrl = findFlagUrlByNationality(nationality);
     return flagUrl;
-    }
+  }
+
+  toggleCheck(meal: any): void {
+    meal.checked = !meal.checked;
+  }
+  ///if checked then add to recipe list
 }

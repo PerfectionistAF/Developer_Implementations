@@ -53,14 +53,6 @@ ul li a {
     color: brown; /* Make text brown */
 }
   
-.name {
-    font-size: 16px;
-    /*font-weight: bold;*/
-    /*margin-bottom: 0.5rem;*/
-    text-align: left;
-    color: brown; /* Make text brown */
-}
-  
 .category, .area {
     position: relative;
     right: 1rem;
@@ -78,6 +70,29 @@ ul li a {
     position: relative;
     margin-top: 0.1rem;
     padding: 0;
+}
+
+.name {
+    font-size: 16px;
+    /*font-weight: bold;*/
+    /*margin-bottom: 0.5rem;*/
+    color: brown; /* Make text brown */
+    text-align: justify;
+    white-space: normal;
+    word-wrap: break-word;
+    width: 100%;
+    display: block;
+}
+
+.check-icon {
+    margin-left: 10px;
+    font-size: 24px;
+    color: red;
+    opacity: 0.3;
+}
+
+.check-icon:hover {
+    opacity: 1;
 }
 
 li a:hover {

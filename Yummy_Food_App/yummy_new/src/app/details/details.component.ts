@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FoodService } from '../services/food/food.service';
+import { HomeComponent } from '../home/home.component';
 import { ActivatedRoute } from '@angular/router';
 
 @Component({
@@ -18,6 +19,7 @@ export class DetailsComponent implements OnInit {
         this.foodService.getMealById(params['idMeal']).subscribe((data: any) => {
         this.meal = data.meals[0];
         //alert(this.meal.strMeal);
+        this.meal.checked;
       });
     }
   });
@@ -25,5 +27,9 @@ export class DetailsComponent implements OnInit {
 
   ngOnInit(): void {
     
+  }
+
+  toggleCheck(meal: any): void {
+    meal.checked = !meal.checked;
   }
 }

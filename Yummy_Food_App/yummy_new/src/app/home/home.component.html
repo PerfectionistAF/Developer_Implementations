@@ -11,7 +11,10 @@
         </a>
         <div class="content">
             <div class="name">
-                {{ meal.strMeal }}
+                {{ names[i] }}
+                
+                <i class="fas fa-check check-icon" [class.checked]="meal.checked" 
+                (click)="toggleCheck(meal)"></i>
             </div>
             <!--<div class="category">
                 {{meal.strCategory}}

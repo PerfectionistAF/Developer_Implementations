@@ -1,2 +1,17 @@
-<h2>{{ meal.strMeal }}</h2>
-<p>{{ meal.strInstructions }}</p>
+<div *ngIf="meal" class="recipe-card">
+  <div class="recipe-header">
+    <img [src]="meal.strMealThumb" alt="{{ meal.strMeal }}" class="recipe-image" />
+    <div class="recipe-title">
+      <h1>{{ meal.strMeal }}</h1>
+      <i class="fas fa-check check-icon" [class.checked]="meal.checked" (click)="toggleCheck(meal)"></i>
+    </div>
+  </div>
+  <div class="recipe-details">
+    <p><strong>Origin:</strong> {{ meal.strArea }}</p>
+    <p><strong>Category:</strong> {{ meal.strCategory }}</p>
+    <div class="instructions">
+      <strong>Instructions:</strong>
+      <p>{{ meal.strInstructions }}</p>
+    </div>
+  </div>
+</div>
